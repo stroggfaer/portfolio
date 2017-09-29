@@ -14,8 +14,8 @@ use Yii;
  *
  * @property Portfolio[] $portfolios
  */
-class Images extends \yii\db\ActiveRecord
-{
+class Images extends \yii\db\ActiveRecord {
+
     /**
      * @inheritdoc
      */
@@ -30,10 +30,11 @@ class Images extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['hash', 'img'], 'required'],
-            [['status'], 'integer'],
+            [['group_id'], 'required'],
+            [['status','group_id'], 'integer'],
             [['hash'], 'string', 'max' => 228],
-            [['img'], 'string', 'max' => 128],
+            [['exp'], 'string', 'max' => 128],
+
         ];
     }
 
@@ -57,4 +58,11 @@ class Images extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Portfolio::className(), ['image_id' => 'id']);
     }
+
+    // Путь изображение;
+    public function getPathImage()
+    {
+        return  \Yii::$app->params['img_max'].$this->id.'.'.$this->exp;
+    }
+
 }

@@ -7,16 +7,11 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use app\assets\AppAsset;
-use app\models\Pages;
-AppAsset::register($this);
-if (!Yii::$app->user->isGuest) {
-  //  print_arr(Yii::$app->user);
-    echo '++';
-}else{
-    echo '-';
-}
-$menu = Pages::find()->where(['status'=>1])->all();
+use app\assets\CmsAsset;
+
+CmsAsset::register($this);
+$session = Yii::$app->session;
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -36,13 +31,15 @@ $menu = Pages::find()->where(['status'=>1])->all();
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Brand</a>
+                <a class="navbar-brand" href="#">CMS</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <?php foreach($menu as $key=>$value): ?>
-                       <li class=""><a href="<?=$value->url?>"><?=$value->title?></a></li>
+                   <?php if(!empty(\Yii::$app->controller->actionNavigation)): ?>
+                    <?php foreach(\Yii::$app->controller->actionNavigation as $key=>$value): ?>
+                       <li class=""><a href="<?=$value['link']?>"><?=$value['title']?></a></li>
                     <?php endforeach; ?>
+                    <?php endif; ?>
                 </ul>
              </div>
         </div>

@@ -2,17 +2,28 @@
 
 namespace app\module\admin\controllers;
 
-use yii\web\Controller;
 use Yii;
 use app\models\Pages;
 use app\module\admin\models\PostSearchPages;
+
+use app\models\User;
+use app\module\admin\models\PostSearchUser;
+
+use app\models\Portfolio;
+use app\module\admin\models\PostSearchPortfolio;
+
+use app\models\UploadImages;
+
+use app\models\ResizeImages;
+
+
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+//use app\module\admin\controllers\BackendController;
 /**
  * DefaultController implements the CRUD actions for Pages model.
  */
-class DefaultController extends Controller
+class DefaultController extends BackendController
 {
     /**
      * @inheritdoc
@@ -26,23 +37,34 @@ class DefaultController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+            'access' => [
+                'class' => \yii\filters\AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['superadmin']
+                    ],
+                ],
+            ],
+
         ];
     }
-    /*
+
     public function actionIndex()
     {
+
         return $this->render('index');
-    }*/
+    }
     /**
      * Lists all Pages models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionPages()
     {
         $searchModel = new PostSearchPages();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
+        return $this->render('pages/index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -53,10 +75,10 @@ class DefaultController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionView($id)
+    public function actionViewPages($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
+        return $this->render('pages/view', [
+            'model' => $this->findModelPages($id),
         ]);
     }
 
@@ -65,14 +87,14 @@ class DefaultController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreatePages()
     {
         $model = new Pages();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view-pages', 'id' => $model->id]);
         } else {
-            return $this->render('create', [
+            return $this->render('pages/create', [
                 'model' => $model,
             ]);
         }
@@ -84,14 +106,14 @@ class DefaultController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionUpdate($id)
+    public function actionUpdatePages($id)
     {
-        $model = $this->findModel($id);
+        $model = $this->findModelPages($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['view-pages', 'id' => $model->id]);
         } else {
-            return $this->render('update', [
+            return $this->render('pages/update', [
                 'model' => $model,
             ]);
         }
@@ -103,11 +125,11 @@ class DefaultController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($id)
+    public function actionDeletePages($id)
     {
-        $this->findModel($id)->delete();
+        $this->findModelPages($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['pages']);
     }
 
     /**
@@ -117,7 +139,7 @@ class DefaultController extends Controller
      * @return Pages the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
+    protected function findModelPages($id)
     {
         if (($model = Pages::findOne($id)) !== null) {
             return $model;
@@ -125,4 +147,229 @@ class DefaultController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+
+
+    /*--------------Управление пользователи;---------------*/
+    /**
+     * Lists all User models.
+     * @return mixed
+     */
+    public function actionUser()
+    {
+        $searchModel = new PostSearchUser();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('user/index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    /**
+     * Displays a single User model.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionViewUser($id)
+    {
+        return $this->render('user/view', [
+            'model' => $this->findModelUser($id),
+        ]);
+    }
+
+    /**
+     * Creates a new User model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
+     */
+    public function actionCreateUser()
+    {
+        $model = new User();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+
+                $model->setPassword($model->password);
+                $model->generateAuthKey();
+                $model->generateEmailConfirmToken();
+                if ($model->save()) {
+                    // нужно добавить следующие три строки:
+                    //   $auth = Yii::$app->authManager;
+                    //  $authorRole = $auth->getRole('superadmin');
+                    //  $auth->assign($authorRole, $user->getId());
+                    return $this->redirect(['view-user', 'id' => $model->id]);
+                }else{
+                    print_arr($model->errors);
+                    die('A');
+                }
+        } else {
+            return $this->render('user/create', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    /**
+     * Updates an existing User model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionUpdateUser($id)
+    {
+        $model = $this->findModelUser($id);
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+
+                $model->setPassword($model->password);
+                $model->generateAuthKey();
+                $model->generateEmailConfirmToken();
+                if ($model->save()) {
+                    // нужно добавить следующие три строки:
+                    //   $auth = Yii::$app->authManager;
+                    //  $authorRole = $auth->getRole('superadmin');
+                    //  $auth->assign($authorRole, $user->getId());
+                    return $this->redirect(['view-user', 'id' => $model->id]);
+                }else{
+                    print_arr($model->errors);
+                    die('A');
+                }
+        } else {
+            return $this->render('user/update', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    /**
+     * Deletes an existing User model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionDeleteUser($id)
+    {
+        $this->findModelUser($id)->delete();
+
+        return $this->redirect(['user']);
+    }
+
+    /**
+     * Finds the User model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return User the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function findModelUser($id)
+    {
+        if (($model = User::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+
+    /**
+     * Lists all Portfolio models.
+     * @return mixed
+     */
+    public function actionPortfolio()
+    {
+        $searchModel = new PostSearchPortfolio();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('portfolio/index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    /**
+     * Displays a single Portfolio model.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionViewPortfolio($id)
+    {
+        return $this->render('portfolio/view', [
+            'model' => $this->findModelPortfolio($id),
+        ]);
+    }
+
+    /**
+     * Creates a new Portfolio model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
+     */
+    public function actionCreatePortfolio()
+    {
+        $model = new Portfolio();
+        //
+        $images = new UploadImages();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view-portfolio', 'id' => $model->id]);
+        } else {
+            return $this->render('portfolio/create', [
+                'model' => $model,
+                'images' => $images,
+            ]);
+        }
+    }
+
+    /**
+     * Updates an existing Portfolio model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionUpdatePortfolio($id)
+    {
+        $model = $this->findModelPortfolio($id);
+
+        //
+        $images = new UploadImages();
+
+        //
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view-portfolio', 'id' => $model->id]);
+        } else {
+            return $this->render('portfolio/update', [
+                'model' => $model,
+                'images'=>$images,
+            ]);
+        }
+    }
+
+    /**
+     * Deletes an existing Portfolio model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionDeletePortfolio($id)
+    {
+        $this->findModelPortfolio($id)->delete();
+
+        return $this->redirect(['portfolio']);
+    }
+
+    /**
+     * Finds the Portfolio model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return Portfolio the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function findModelPortfolio($id)
+    {
+        if (($model = Portfolio::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+
 }

@@ -1,7 +1,8 @@
 <?php
-
 use yii\helpers\Html;
 use yii\grid\GridView;
+//use yii\widgets\Pjax;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\module\admin\models\PostSearchPages */
@@ -33,7 +34,15 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'text:ntext',
             // 'status',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{view}&nbsp;{update}&nbsp;{delete}',
+                'headerOptions' => ['width' => '80'],
+                'urlCreator'=>function($action, $model, $key, $index){
+                    return Url::to([$action.'-pages','id'=>$model->id]);
+                }
+
+            ],
         ],
     ]); ?>
 </div>

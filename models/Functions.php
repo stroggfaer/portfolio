@@ -8,6 +8,7 @@ use yii\base\Model;
 
 class Functions extends Model
 {
+
     // Проверка файл;
     public static function fileDir($file = false){
 
@@ -17,4 +18,5 @@ class Functions extends Model
             return false;
         }
     }
+
 }

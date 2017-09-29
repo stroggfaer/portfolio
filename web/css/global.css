@@ -1,0 +1,32 @@
+/*Color*/
+.primary-com {
+    color: #428bca;
+}
+.success-com {
+    color: #5cb85c;
+}
+.info-com {
+    color: #5bc0de;
+}
+.warning-com {
+    color: #f0ad4e;
+}
+.danger-com {
+    color: #d9534f;
+}
+/*bg*/
+.primary-bg {
+    background-color: #428bca;
+}
+.success-bg {
+    background-color: #5cb85c;
+}
+.info-bg {
+    background-color: #5bc0de;
+}
+.warning-bg{
+    background-color: #f0ad4e;
+}
+.danger-bg {
+    background-color: #d9534f;
+}

@@ -2,7 +2,35 @@ html,
 body {
     height: 100%;
 }
-
+.hidden {
+    display: none;
+}
+.hidden1 {
+    display: none !important;
+}
+.clear {
+    font-size: 0px;
+    clear: both;
+}
+img {
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+    vertical-align: top;
+}
+img.ad {
+    height: 100%;
+}
+img.opac:hover {
+    opacity: 0.80;
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=80);
+    -khtml-opacity: 0.80;
+    -moz-opacity: 0.80;
+    transition: 0.2s 0.01s ease-in;
+    -moz-transition: all 0.2s 0.01s ease-in;
+    -o-transition: all 0.2s 0.01s ease-in;
+    -webkit-transition: all 0.2s 0.01s ease-in;
+}
 .wrap {
     min-height: 100%;
     height: auto;
@@ -112,4 +140,43 @@ a.desc:after {
 
 .nav > li > form > button.logout:focus {
     outline: none;
+}
+/*Избражения*/
+.images-all {
+
+}
+.images-all div.item{
+    border: 2px solid #8a8a8a;
+    float: left;
+    height: 180px;
+    margin: 5px 5px 10px 0;
+    overflow: hidden;
+    padding: 0;
+    width: 130px;
+    position: relative;
+}
+.images-all div.item:hover .panel-ad {
+    display: block;
+}
+.images-all div.item .panel-ad{
+    padding: 5px 0px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: rgb(255, 255, 255);
+    background: rgba(255, 255, 255, 0.8);
+}
+.images-all div.item .panel-ad span {
+    cursor: pointer;
+    font-size: 21px;
+    margin: 0 0 0 5px;
+}
+
+.images-all div.item .panel-ad span.glyphicon-remove-sign {
+    margin: 0 5px 0 0;
+    float: right;
+}
+.images-all div.item img{
+    height: 180px;
+    width: 130px;
 }

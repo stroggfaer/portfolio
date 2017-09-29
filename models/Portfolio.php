@@ -36,6 +36,7 @@ class Portfolio extends \yii\db\ActiveRecord
             [['title', 'description'], 'required'],
             [['description'], 'string'],
             [['date'], 'safe'],
+            ['date', 'default', 'value'=>date('Y-m-d')],
             [['title'], 'string', 'max' => 128],
             [['image_id'], 'exist', 'skipOnError' => true, 'targetClass' => Images::className(), 'targetAttribute' => ['image_id' => 'id']],
         ];
@@ -63,4 +64,12 @@ class Portfolio extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Images::className(), ['id' => 'image_id']);
     }
+
+    // Загрузка изображения;
+    public function getImages()
+    {
+        return $this->hasMany(Images::className(), ['group_id' => 'id']);
+    }
+
+
 }
