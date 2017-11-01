@@ -26,10 +26,10 @@ $session = Yii::$app->session;
 </head>
 <body>
 <?php $this->beginBody() ?>
-
+<div id="loadAjax"><div class="loader"></div></div>
 <div class="wrap">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
+        <div class="container ">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">CMS</a>
             </div>
@@ -45,7 +45,7 @@ $session = Yii::$app->session;
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container load-contents">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>

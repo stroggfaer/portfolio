@@ -51,18 +51,27 @@ class Images extends \yii\db\ActiveRecord {
         ];
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
+    public function getPortfolio()
+    {
+        return $this->hasOne(Portfolio::className(), ['id' => 'group_id']);
+    }
     public function getPortfolios()
     {
-        return $this->hasMany(Portfolio::className(), ['image_id' => 'id']);
+        return $this->hasMany(Portfolio::className(), ['group_id' => 'id']);
     }
 
     // Путь изображение;
-    public function getPathImage()
+    public function getPathImage($option = false)
     {
-        return  \Yii::$app->params['img_max'].$this->id.'.'.$this->exp;
+            $img_min = \Yii::$app->params['img_max'].$this->id.'_min.'.$this->exp;
+            $img =  \Yii::$app->params['img_max'].$this->id.'.'.$this->exp;
+            $images = (!empty($option) ? $img_min : $img);
+            if (file_exists($_SERVER['DOCUMENT_ROOT'].$images)) {
+                return $images;
+            }else{
+                return \Yii::$app->params['no_images'];
+            }
     }
+
 
 }

@@ -12,13 +12,18 @@ use app\module\admin\models\PostSearchUser;
 use app\models\Portfolio;
 use app\module\admin\models\PostSearchPortfolio;
 
+use app\models\PortfolioGroups;
+use app\module\admin\models\PostSearchPortfolioGroup;
+
 use app\models\UploadImages;
+
+use app\models\PortfolioDetails;
 
 use app\models\ResizeImages;
 
-
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+
 //use app\module\admin\controllers\BackendController;
 /**
  * DefaultController implements the CRUD actions for Pages model.
@@ -37,12 +42,13 @@ class DefaultController extends BackendController
                     'delete' => ['POST'],
                 ],
             ],
+
             'access' => [
                 'class' => \yii\filters\AccessControl::className(),
                 'rules' => [
                     [
                         'allow' => true,
-                        'roles' => ['superadmin']
+                        'roles' => ['superadmin'],
                     ],
                 ],
             ],
@@ -55,6 +61,8 @@ class DefaultController extends BackendController
 
         return $this->render('index');
     }
+
+
     /**
      * Lists all Pages models.
      * @return mixed
@@ -269,7 +277,99 @@ class DefaultController extends BackendController
         }
     }
 
+    /**
+     * *************Портфолио группа*************************
+     * Lists all PortfolioGroups models.
+     * @return mixed
+     */
+    public function actionPortfolioGroups()
+    {
+        $searchModel = new PostSearchPortfolioGroup();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+        return $this->render('portfolio-groups/index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    /**
+     * Displays a single PortfolioGroups model.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionViewPortfolioGroups($id)
+    {
+        return $this->render('portfolio-groups/view', [
+            'model' => $this->findModelPortfolioGroups($id),
+        ]);
+    }
+
+    /**
+     * Creates a new PortfolioGroups model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
+     */
+    public function actionCreatePortfolioGroups()
+    {
+        $model = new PortfolioGroups();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view-portfolio-groups', 'id' => $model->id]);
+        } else {
+            return $this->render('portfolio-groups/create', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    /**
+     * Updates an existing PortfolioGroups model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionUpdatePortfolioGroups($id)
+    {
+        $model = $this->findModelPortfolioGroups($id);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view-portfolio-groups', 'id' => $model->id]);
+        } else {
+            return $this->render('portfolio-groups/update', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    /**
+     * Deletes an existing PortfolioGroups model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionDeletePortfolioGroups($id)
+    {
+        $this->findModelPortfolioGroups($id)->delete();
+
+        return $this->redirect(['portfolio-groups']);
+    }
+
+    /**
+     * Finds the PortfolioGroups model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return PortfolioGroups the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function findModelPortfolioGroups($id)
+    {
+        if (($model = PortfolioGroups::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
     /**
      * Lists all Portfolio models.
      * @return mixed
@@ -305,10 +405,26 @@ class DefaultController extends BackendController
     public function actionCreatePortfolio()
     {
         $model = new Portfolio();
-        //
+
+        // Изображения;
         $images = new UploadImages();
 
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+            // Добавляем запись;
+            if(!empty($model->checkboxList)) {
+                foreach ($model->checkboxList as $group_id) {
+                    $portfolioDetails =  new PortfolioDetails();
+                    $portfolioDetails->group_id = $group_id;
+                    $portfolioDetails->portfolio_id = $model->id;
+                    if (!$portfolioDetails->save()) {
+                        print_arr($portfolioDetails->getErrors());
+                        die('Валидация');
+                    }
+                }
+            }
+
             return $this->redirect(['view-portfolio', 'id' => $model->id]);
         } else {
             return $this->render('portfolio/create', [
@@ -328,11 +444,36 @@ class DefaultController extends BackendController
     {
         $model = $this->findModelPortfolio($id);
 
-        //
+        // Изображения;
         $images = new UploadImages();
 
-        //
+
+
+
+        // Добавляем запись;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+                // Загрузка Связная табоица;
+                $PortfolioDetailsAll =  PortfolioDetails::findAll(['portfolio_id'=>$id]);
+
+                // Удаляем старые записи;
+                if(!empty($PortfolioDetailsAll)) {
+                    foreach ($PortfolioDetailsAll as $item) {
+                        $item->delete();
+                    }
+                }
+                // Добавляем запись;
+                if(!empty($model->checkboxList)) {
+                    foreach ($model->checkboxList as $group_id) {
+                        $portfolioDetails =  new PortfolioDetails();
+                        $portfolioDetails->group_id = $group_id;
+                        $portfolioDetails->portfolio_id = $model->id;
+                        if (!$portfolioDetails->save()) {
+                            print_arr($portfolioDetails->getErrors());
+                            die('Валидация');
+                        }
+                    }
+                }
             return $this->redirect(['view-portfolio', 'id' => $model->id]);
         } else {
             return $this->render('portfolio/update', [

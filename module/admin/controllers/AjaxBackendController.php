@@ -64,8 +64,7 @@ class AjaxBackendController extends BackendController
             $dirFiles = $_SERVER['DOCUMENT_ROOT'] . \Yii::$app->params['img_max'];
             // Удаляем файл;
             ResizeImages::fileDelete($dirFiles,$images->id.'.'.$images->exp);
-          //  ImagesCore::fileDelete($dirFiles, $images->hash.'.'.$images->exp);
-          //  ImagesCore::fileDelete($dirFiles, $images->hash.'_min.'.$images->exp);
+            ResizeImages::fileDelete($dirFiles,$images->id.'_min.'.$images->exp);
             // Удаляем запись таблицы;
             $images->delete();
             return \app\components\cms\WImagesAll::widget([

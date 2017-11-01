@@ -18,7 +18,7 @@ class PostSearchPortfolio extends Portfolio
     public function rules()
     {
         return [
-            [['id', 'image_id', 'status'], 'integer'],
+            [['id', 'group_id', 'status'], 'integer'],
             [['title', 'description', 'date'], 'safe'],
         ];
     }
@@ -60,7 +60,7 @@ class PostSearchPortfolio extends Portfolio
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'image_id' => $this->image_id,
+            'group_id' => $this->group_id,
             'date' => $this->date,
             'status' => $this->status,
         ]);

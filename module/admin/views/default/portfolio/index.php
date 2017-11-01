@@ -26,7 +26,17 @@ $this->params['breadcrumbs'][] = $this->title;
           //  ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'image_id',
+            [
+                'attribute' => 'image_id',
+                'label'     => 'Изображение',
+                'content'   => function ($data) {
+                    $html = '';
+                    foreach($data->images as $image) {
+                        $html .= '<div><img width="70px" class="pull-left images_t '.(!empty($image->main) ? 'main' : '').'  " src="'.$image->getPathImage('min').'" /></div>';
+                    }
+                    return  $html;
+                }
+            ],
             'title',
             'description:ntext',
             'date',

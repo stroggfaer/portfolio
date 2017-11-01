@@ -7,12 +7,15 @@ use yii\widgets\ActiveForm;
 use kartik\date\DatePicker;
 use kartik\widgets\FileInput;
 use yii\helpers\ArrayHelper;
+
 use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Portfolio */
 /* @var $form yii\widgets\ActiveForm */
-// composer require --prefer-dist mihaildev/yii2-elfinder "*"
+
+// Загрузка группы;
+$portfolioGroups = ArrayHelper::map(array_merge(\app\models\PortfolioGroups::find()->select(['id','title'])->where(['status'=>1])->orderBy('id ASC')->all()),'id','title');
 
 ?>
 
@@ -35,10 +38,12 @@ use yii\helpers\Url;
 
 
     ])->label('Описание');  ?>
+    <?= $form->field($model, 'url')->textInput(['maxlength' => true])->label('Ссылка') ?>
+    <?= $form->field($model, 'git')->textInput(['maxlength' => true])->label('Ссылка на git') ?>
     <?php
     // Загрузка изображения;
     if(!empty($model->id)) {
-        echo '<div class="images-all">'. \app\components\cms\WImagesAll::widget(['model'=>$model]).'</div>';
+        echo '<div class="images-all">'. \app\components\cms\WImagesAll::widget(['model'=>$model]).'<div class="load-content"></div></div>';
     }
     ?>
      <?php if(!$model->isNewRecord): ?>
@@ -60,8 +65,10 @@ use yii\helpers\Url;
                     "fileuploaded" => "function(event, data, previewId, index) {
                           var response = data.response;
                           if(response.success) {
+                             loading_content('show');
                               $.post('/admin/ajax-backend/images-update-content',{'updateImagesContent':true,'id':".$model->id." },function(html){
                                   $(\"div.images-all\").html(html);
+                                   loading_content('hide');
                               });
                           }
                      }",
@@ -69,6 +76,21 @@ use yii\helpers\Url;
             ]
         );
         ?>
+    <?php endif; ?>
+
+
+
+    <?php
+     // print_arr($model->group_id);
+      if(true):
+    ?>
+    <?= $form->field($model, 'checkboxList')->checkboxList($portfolioGroups,
+        ['item' => function ($index, $label, $name, $checked, $value) use ($model)  {
+            $items = !empty($model->portfolioDetails) ? ArrayHelper::map(array_merge($model->portfolioDetails),'group_id','id') : false;
+            $check = (!empty($items[$value]) ? ' checked="checked"' : '');
+            return "<div class='checkbox inline'><label><input type=\"checkbox\" $check  name=\"$name\" value=\"$value\"> <span>$label</span></label></div>";
+        }]
+    )->label('Группы')?>
     <?php endif; ?>
 
 

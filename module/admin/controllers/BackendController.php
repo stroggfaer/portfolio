@@ -40,7 +40,7 @@ class BackendController extends Controller
             ],
             'portfolio' => [
                 'title' => 'Управление портфолио',
-                'link' => '/admin/portfolio/',
+                'link' => '/admin/portfolio-groups/',
                 'status' => 1,
                 'items' => [
                     [

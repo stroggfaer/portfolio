@@ -148,35 +148,43 @@ a.desc:after {
 .images-all div.item{
     border: 2px solid #8a8a8a;
     float: left;
-    height: 180px;
     margin: 5px 5px 10px 0;
     overflow: hidden;
     padding: 0;
     width: 130px;
     position: relative;
 }
-.images-all div.item:hover .panel-ad {
+.images-all div.item:hover .panel-op {
     display: block;
 }
-.images-all div.item .panel-ad{
+.images-all div.item .panel-op{
     padding: 5px 0px;
     position: absolute;
     top: 0;
     width: 100%;
     background: rgb(255, 255, 255);
     background: rgba(255, 255, 255, 0.8);
+    display: block;
 }
-.images-all div.item .panel-ad span {
+.images-all div.item .panel-op span {
     cursor: pointer;
     font-size: 21px;
     margin: 0 0 0 5px;
 }
 
-.images-all div.item .panel-ad span.glyphicon-remove-sign {
+.images-all div.item .panel-op span.glyphicon-remove-sign {
     margin: 0 5px 0 0;
     float: right;
 }
 .images-all div.item img{
-    height: 180px;
+    height: 150px;
     width: 130px;
+}
+.images_t {
+    background: #e0e0e0;
+    padding: 3px;
+    margin: 2px;
+}
+.images_t .main{
+    background: #12d24d;
 }
