@@ -13,6 +13,7 @@ use app\models\Options;
 
 AppAsset::register($this);
 
+
 if (!Yii::$app->user->isGuest) {
     //  print_arr(Yii::$app->user);
    // echo '++';
@@ -31,7 +32,7 @@ $options = Options::find()->where(['id'=>1000,'status'=>1])->one();
 <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <meta name="author" content="Ruslan">
+    <meta name="author" content="Ruslan Z">
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <?= Html::csrfMetaTags() ?>
