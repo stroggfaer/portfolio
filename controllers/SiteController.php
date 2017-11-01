@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Pages;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -9,8 +10,10 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\SignupForm;
+use app\controllers\AppController;
 
-class SiteController extends Controller
+class SiteController extends AppController
 {
     /**
      * @inheritdoc
@@ -61,6 +64,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $pages = Pages::find()->where(['id'=>1000])->one();
+        // Сео настройки;
+        if(!empty($pages)) $this->setMeta((!empty($pages->seo_title) ? $pages->seo_title : $pages->title),$pages->keywords,$pages->description);
         return $this->render('index');
     }
 
@@ -69,19 +75,25 @@ class SiteController extends Controller
      *
      * @return Response|string
      */
+
     public function actionLogin()
     {
+        $this->layout = "default";
+
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
         $model = new LoginForm();
+
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
+        } else {
+
+            return $this->render('login', [
+                'model' => $model,
+            ]);
         }
-        return $this->render('login', [
-            'model' => $model,
-        ]);
     }
 
     /**
@@ -94,6 +106,21 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+    // Регистрация;
+    public function actionSignup()
+    {
+        $model = new SignupForm();
+        if ($model->load(Yii::$app->request->post())) {
+
+            if ($user = $model->signup()) {
+                Yii::$app->getSession()->setFlash('success', 'Подтвердите ваш электронный адрес.');
+                return $this->goHome();
+            }
+        }
+        return $this->render('signup', [
+            'model' => $model,
+        ]);
     }
 
     /**

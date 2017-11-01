@@ -21,7 +21,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'title') ?>
 
-    <?= $form->field($model, 'title_seo') ?>
+    <?= $form->field($model, 'seo_title') ?>
 
     <?= $form->field($model, 'keywords') ?>
 

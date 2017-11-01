@@ -19,7 +19,7 @@ class PostSearchPages extends Pages
     {
         return [
             [['id', 'status'], 'integer'],
-            [['url', 'title', 'title_seo', 'keywords', 'description', 'text'], 'safe'],
+            [['url', 'title', 'seo_title', 'keywords', 'description', 'text'], 'safe'],
         ];
     }
 
@@ -65,7 +65,7 @@ class PostSearchPages extends Pages
 
         $query->andFilterWhere(['like', 'url', $this->url])
             ->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'title_seo', $this->title_seo])
+            ->andFilterWhere(['like', 'seo_title', $this->title_seo])
             ->andFilterWhere(['like', 'keywords', $this->keywords])
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'text', $this->text]);

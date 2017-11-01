@@ -30,7 +30,7 @@ class PagesController extends AppController
 
         if(!empty($pages) && !empty($url)){
             // Сео настройки;
-            $this->setMeta((!empty($pages->seo_title) ? $pages->doc_title : $pages->title),$pages->keywords,$pages->description);
+            $this->setMeta((!empty($pages->seo_title) ? $pages->seo_title : $pages->title),$pages->keywords,$pages->description);
 
             //  Проверка файл;
             if(Functions::fileDir('/views/pages/'.$url)) {

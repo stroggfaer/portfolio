@@ -1,0 +1,488 @@
+.no_focus:focus {
+    outline: none!important;
+    border: none !important;
+}
+
+canvas{
+    display:block;
+    vertical-align:bottom;
+}
+#particles-js{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    position: absolute;
+    z-index:11;
+}
+/*---Шапка---*/
+#header-section-1 {
+   background: none;
+   left: 0;
+   position: relative;
+   right: 0;
+   top: 0;
+}
+#header-section-1 ul.navbar-nav > li > a:not(.btn) {
+    color:#fff;
+    opacity: 100;
+}
+#header-section-1 .navbar-brand img {
+    max-height: 100px;
+    margin-top: 10px;
+    opacity: 0.7;
+    display: block;
+}
+#header-section-1 .navbar-brand img.logo-m {
+    margin-top: 5px;
+    width: 40px;
+}
+#header-section-1 .navbar-brand img:hover {
+    opacity: 100;
+}
+#header-section-1 .navbar-brand .profi .name{
+    color: #fff;
+    display: block;
+    float: left;
+    font-size: 14px;
+    line-height: 20px;
+    position: absolute;
+    right: 0;
+    top: 10px;
+}
+#header-section-1 .navbar-brand .profi{
+    position: relative;
+    width: 175px;
+}
+#header-section-1 .header-menu-container {
+    background: none;
+}
+#header-section-1 .header-menu-container.header-menu-stuck {
+    position: absolute;
+    box-shadow: none;
+}
+#header-section-1 .header-menu-container.header-menu-stuck.affix,
+#header-section-1 .header-menu-container.header-menu-stuck.top{
+    position: fixed;
+    background:rgb(0,0,0);
+    background: rgba(0,0,0,0.7);
+}
+#header-section-1 .header-menu-container.header-menu-stuck.affix ul.navbar-nav > li > a:not(.btn),
+#header-section-1 .header-menu-container.header-menu-stuck.top ul.navbar-nav > li > a:not(.btn) {
+    line-height:50px;
+}
+#header-section-1 .header-menu-container.header-menu-stuck.affix .desctop .logo,
+#header-section-1 .header-menu-container.header-menu-stuck.top .desctop .logo{
+    display: none;
+}
+#header-section-1 .header-menu-container.header-menu-stuck.affix .mobile,
+#header-section-1 .header-menu-container.header-menu-stuck.top .mobile{
+    display: block;
+}
+
+#header-section-1  ul.navbar-nav > li > a{
+    text-decoration: none;
+    transition: all 0.3s ease 0s;
+    position: relative;
+}
+#header-section-1  ul.navbar-nav > li > a::after{
+    backface-visibility: hidden;
+    background-color: #f1f1f1;
+    bottom: 12px;
+    content: "";
+    height: 1px;
+    left: 50%;
+    position: absolute;
+    right: 0;
+    transform: translateX(-50%);
+    transition: all 0.3s ease 0s;
+    width: 0;
+}
+#header-section-1  ul.navbar-nav > li > a:hover::after, #header-section-1  ul.navbar-nav > li.active a::after{
+    width: 100%;
+}
+#header-section-1 ul.navbar-nav > li > a:focus {
+    outline: none;
+}
+
+#hero-section-1 {
+    margin-top: -85px;
+}
+#hero-section-1 div.title-block-container h1 {
+    font-size: 280%;
+    font-weight: 400;
+}
+#hero-section-1 .title-block-container.text-center p {
+    font-size: 18px;
+    padding: 0 0 30px;
+}
+#hero-section-1 div.title-block-container{
+    text-transform: uppercase;
+    margin-top: 60px;
+}
+#hero-section-1 div.filter {
+    background: rgb(0,0,0);
+    background: rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+#hero-section-1 .section-container {
+    padding: 180px 0 240px;
+}
+#content-section-11{
+    position: relative;
+
+}
+#content-section-11 .white{
+    color: #f1f1f1;
+}
+#content-section-11 h2{
+    color:#f1f1f1
+}
+
+#content-section-11 .text-center .line-separator {
+    background-color: #f1f1f1;
+}
+#content-section-11 .bg {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+#content-section-11 .bg::after{
+    background: rgb(0,0,0);
+    background: rgba(0,0,0,0.8);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+#content-section-11 .section-container{
+   padding-bottom: 80px;
+}
+#content-section-11 div.title-block .title-block-container {
+    margin-bottom: 0;
+}
+#content-section-11 .content-block.right {
+    position: relative;
+}
+#content-section-11 .content-block.right::after{
+    content: "\f125";
+    position: absolute;
+    right: 0;
+    top: 55px;
+    font-size: 2.8em;
+    display: inline-block;
+    font-family: "Ionicons";
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-rendering: auto;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/*Social*/
+.social-icons-block-mod {
+    padding: 15px 0;
+}
+.social-icons-block-mod li{
+    display: inline-block;
+    font-size: 23px;
+    margin: 0 0.5rem;
+}
+.social-icons-block-mod li span{
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0px;
+}
+.social-btn {
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    display: block;
+    height: 40px;
+    padding: 10px 15px;
+    position: relative;
+    transition: all 0.25s ease 0s;
+    width: 40px;
+}
+
+.social-btn:hover {
+    background: #D32F2F;
+    border: 2px solid #D32F2F;
+}
+.social-btn.f:hover {
+    background: #4267B2;
+    border: 2px solid #4267B2;
+}
+.social-btn.t:hover {
+    background: #1DA1F2;
+    border: 2px solid #1DA1F2;
+}
+.social-btn.git:hover {
+    background: #333333;
+    border: 2px solid #333333;
+}
+.social-btn.in:hover {
+    background: #D6267C;
+    border: 2px solid #D6267C;
+}
+
+
+/*------Кнопки------*/
+.btn-lpbuilder, .btn-lpbuilder:focus {
+    background-color:#000;
+}
+/**/
+#content-section-11 .icon-lg{
+    font-size: 75px;
+    height: 100px;
+    line-height: 100px;
+}
+#content-section-11 .fa-file-code-o{
+    font-size: 62px;
+    position: relative;
+    top: 3px;
+}
+#content-section-11 .ion-android-laptop {
+    font-size: 80px;
+    position: relative;
+    top: 3px;
+}
+#content-section-11 .content-block-style-5 .content-block-container {
+    padding: 25px 20px;
+}
+/*--Форма заявки--*/
+#hero-section-15 .form-contact {
+    margin: 30px auto 0;
+    padding: 10px;
+    width: 60%;
+}
+#hero-section-15 p {
+    font-size: 18px;
+}
+#hero-section-15 .form-contact .form-group {
+    border: 1px solid #fff;
+}
+#hero-section-15 .form-contact .form-control {
+    padding-left: 15px;
+}
+#hero-section-15 .form-contact .form-control {
+    color:#fff;
+}
+#hero-section-15 ::-webkit-input-placeholder { /* Chrome */
+    color: #fff;
+}
+#hero-section-15 :-ms-input-placeholder { /* IE 10+ */
+    color: #fff;
+}
+#hero-section-15 ::-moz-placeholder { /* Firefox 19+ */
+    color: #fff;
+    opacity: 1;
+}
+#hero-section-15 :-moz-placeholder { /* Firefox 4 - 18 */
+    color: #fff;
+    opacity: 1;
+}
+#hero-section-15 .form-contact .string {
+
+}
+#hero-section-15 .form-contact .text {
+    min-height: 120px;
+}
+#hero-section-15 .form-contact button {
+    margin: 10px 0 0;
+}
+
+
+/**/
+#pricing-section-3 .pricing-block-style-1 .pricing-block-container{
+    border-color: #000;
+}
+.copyright-block-container p {
+    color: #ffffff;
+}
+
+/*-----Preolder------*/
+
+.overlay-loader {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.overlay-loader .loader-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000000;
+    -webkit-transition: background-color .2s 0s linear,right .2s .3s ease-out;
+    -moz-transition: background-color .2s 0s linear,right .2s .3s ease-out;
+    -ms-transition: background-color .2s 0s linear,right .2s .3s ease-out;
+    -o-transition: background-color .2s 0s linear,right .2s .3s ease-out;
+    transition: background-color .2s 0s linear,right .2s .3s ease-out;
+}
+
+.overlay-loader .loader-background.color-flip {
+    -webkit-animation: color-flip 6.5s .6s infinite linear;
+    -moz-animation: color-flip 6.5s .6s infinite linear;
+    -ms-animation: color-flip 6.5s .6s infinite linear;
+    -o-animation: color-flip 6.5s .6s infinite linear;
+    animation: color-flip 6.5s .6s infinite linear;
+}
+
+@-webkit-keyframes color-flip {
+    0% { background-color: #2c4762 }
+    18% { background-color: #2c4762 }
+    20% { background-color: #a77dc2 }
+    38% { background-color: #a77dc2 }
+    40% { background-color: #4aa8d8 }
+    58% { background-color: #4aa8d8 }
+    60% { background-color: #56bc8a }
+    78% { background-color: #56bc8a }
+    80% { background-color: #d95e40 }
+    98% { background-color: #d95e40 }
+    100% { background-color: #2c4762 }
+}
+
+@-moz-keyframes color-flip {
+    0% { background-color: #2c4762 }
+    18% { background-color: #2c4762 }
+    20% { background-color: #a77dc2 }
+    38% { background-color: #a77dc2 }
+    40% { background-color: #4aa8d8 }
+    58% { background-color: #4aa8d8 }
+    60% { background-color: #56bc8a }
+    78% { background-color: #56bc8a }
+    80% { background-color: #d95e40 }
+    98% { background-color: #d95e40 }
+    100% { background-color: #2c4762 }
+}
+
+@-o-keyframes color-flip {
+    0% { background-color: #2c4762 }
+    18% { background-color: #2c4762 }
+    20% { background-color: #a77dc2 }
+    38% { background-color: #a77dc2 }
+    40% { background-color: #4aa8d8 }
+    58% { background-color: #4aa8d8 }
+    60% { background-color: #56bc8a }
+    78% { background-color: #56bc8a }
+    80% { background-color: #d95e40 }
+    98% { background-color: #d95e40 }
+    100% { background-color: #2c4762 }
+}
+
+@keyframes color-flip {
+    0% { background-color: #2c4762 }
+    18% { background-color: #2c4762 }
+    20% { background-color: #a77dc2 }
+    38% { background-color: #a77dc2 }
+    40% { background-color: #4aa8d8 }
+    58% { background-color: #4aa8d8 }
+    60% { background-color: #56bc8a }
+    78% { background-color: #56bc8a }
+    80% { background-color: #d95e40 }
+    98% { background-color: #d95e40 }
+    100% { background-color: #2c4762 }
+}
+
+.overlay-loader .loader-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -48px 0 0 -48px;
+    font-size: 96px;
+    color: #FFF;
+}
+
+.overlay-loader .loader-icon.spinning-cog {
+    -webkit-animation: spinning-cog 1.3s infinite ease;
+    -moz-animation: spinning-cog 1.3s infinite ease;
+    -ms-animation: spinning-cog 1.3s infinite ease;
+    -o-animation: spinning-cog 1.3s infinite ease;
+    animation: spinning-cog 1.3s infinite ease;
+}
+
+@-webkit-keyframes spinning-cog {
+    0% { -webkit-transform: rotate(0deg) }
+    20% { -webkit-transform: rotate(-45deg) }
+    100% { -webkit-transform: rotate(360deg) }
+}
+
+@-moz-keyframes spinning-cog {
+    0% { -moz-transform: rotate(0deg) }
+    20% { -moz-transform: rotate(-45deg) }
+    100% { -moz-transform: rotate(360deg) }
+}
+
+@-o-keyframes spinning-cog {
+    0% { -o-transform: rotate(0deg) }
+    20% { -o-transform: rotate(-45deg) }
+    100% { -o-transform: rotate(360deg) }
+}
+
+@keyframes spinning-cog {
+    0% { transform: rotate(0deg) }
+    20% { transform: rotate(-45deg) }
+    100% { transform: rotate(360deg) }
+}
+
+@-webkit-keyframes shrinking-cog {
+    0% { -webkit-transform: scale(1) }
+    20% { -webkit-transform: scale(1.2) }
+    100% { -webkit-transform: scale(0) }
+}
+
+@-moz-keyframes shrinking-cog {
+    0% { -moz-transform: scale(1) }
+    20% { -moz-transform: scale(1.2) }
+    100% { -moz-transform: scale(0) }
+}
+
+@-o-keyframes shrinking-cog {
+    0% { -o-transform: scale(1) }
+    20% { -o-transform: scale(1.2) }
+    100% { -o-transform: scale(0) }
+}
+
+@keyframes shrinking-cog {
+    0% { transform: scale(1) }
+    20% { transform: scale(1.2) }
+    100% { transform: scale(0) }
+}
+
+.overlay-loader .loader-icon.shrinking-cog {
+    -webkit-animation: shrinking-cog .3s 1 ease forwards;
+    -moz-animation: shrinking-cog .3s 1 ease forwards;
+    -ms-animation: shrinking-cog .3s 1 ease forwards;
+    -o-animation: shrinking-cog .3s 1 ease forwards;
+    animation: shrinking-cog .3s 1 ease forwards;
+}
+
+/*Логин*/
+.user-default-login {
+    height: 500px;
+}
+.user-default-login {
+    margin-top: 100px;
+}

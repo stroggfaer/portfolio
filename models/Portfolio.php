@@ -1,14 +1,14 @@
 <?php
 
 namespace app\models;
-
+use yii\helpers\ArrayHelper;
 use Yii;
 
 /**
  * This is the model class for table "portfolio".
  *
  * @property integer $id
- * @property integer $image_id
+ * @property integer $group_id
  * @property string $title
  * @property string $description
  * @property string $date
@@ -18,6 +18,7 @@ use Yii;
  */
 class Portfolio extends \yii\db\ActiveRecord
 {
+    public  $checkboxList;
     /**
      * @inheritdoc
      */
@@ -32,12 +33,13 @@ class Portfolio extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['image_id', 'status'], 'integer'],
+            [['group_id', 'status',], 'integer'],
             [['title', 'description'], 'required'],
-            [['description'], 'string'],
-            [['date'], 'safe'],
+            [['description','url','git'], 'string'],
+            [['date','checkboxList'], 'safe'],
+            ['date', 'default', 'value'=>date('Y-m-d')],
             [['title'], 'string', 'max' => 128],
-            [['image_id'], 'exist', 'skipOnError' => true, 'targetClass' => Images::className(), 'targetAttribute' => ['image_id' => 'id']],
+            [['group_id'], 'exist', 'skipOnError' => true, 'targetClass' => PortfolioGroups::className(), 'targetAttribute' => ['group_id' => 'id']],
         ];
     }
 
@@ -48,7 +50,7 @@ class Portfolio extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'image_id' => 'Image ID',
+            'group_id' => 'Group Id',
             'title' => 'Title',
             'description' => 'Description',
             'date' => 'Date',
@@ -56,11 +58,42 @@ class Portfolio extends \yii\db\ActiveRecord
         ];
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
+
+    // Загрузка изображения;
+    public function getImages()
+    {
+        return $this->hasMany(Images::className(), ['group_id' => 'id']);
+    }
+
     public function getImage()
     {
-        return $this->hasOne(Images::className(), ['id' => 'image_id']);
+        return $this->hasOne(Images::className(), ['id' => 'group_id'])->where(['status'=>1,'main'=>1]);
+    }
+    // Путь изображения;
+    public static function getImageHref($id,$options = false)
+    {
+        //
+        if(!empty($id)) {
+            $image = Images::find()->where(['group_id'=>$id, 'status' => 1, 'main' => 1])->one();
+            return  $image->getPathImage($options);
+        }
+        return false;
+    }
+
+    // Загрузка связные данные;
+    public function getPortfolioDetails()
+    {
+        return $this->hasMany(PortfolioDetails::className(), ['portfolio_id' => 'id']);
+    }
+    public function getPortfolioDetail()
+    {
+        return $this->hasOne(PortfolioDetails::className(), ['id' => 'portfolio_id']);
+    }
+
+    // Массив в линие;
+    public function getLineArray()
+    {
+        if(!empty($this->portfolioDetails)) return implode(', ',ArrayHelper::map(array_merge($this->portfolioDetails),'id','group_id'));
+        return false;
     }
 }

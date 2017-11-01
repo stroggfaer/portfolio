@@ -1,0 +1,92 @@
+/**Reset***/
+* {
+    vertical-align: baseline;
+    font-weight: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    border: 0 none;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+}
+
+/*Color*/
+.primary-com {
+    color: #428bca;
+}
+.success-com {
+    color: #5cb85c;
+}
+.info-com {
+    color: #5bc0de;
+}
+.warning-com {
+    color: #f0ad4e;
+}
+.danger-com {
+    color: #d9534f;
+}
+
+/*bg*/
+.primary-bg {
+    background-color: #428bca;
+}
+.success-bg {
+    background-color: #5cb85c;
+}
+.info-bg {
+    background-color: #5bc0de;
+}
+.warning-bg{
+    background-color: #f0ad4e;
+}
+.danger-bg {
+    background-color: #d9534f;
+}
+.danger-bg {
+    background-color: #d9534f;
+}
+.silver-bg {
+    background-color: #F2F2F2;
+}
+.black-bg-1 {
+    background-color: #2e2e2e;
+}
+#loadAjax {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    background: none;
+    width: 2.875em;
+    height: 2.875em;
+    margin-left: -1.4375em;
+    margin-top: -1.4375em;
+    z-index: 210;
+    display: none;
+}
+#loadAjax, div.loader {
+    height: 4.76em;
+    margin: 0px;
+    padding: 0.0625em;
+    width: 4.75em;
+}
+#loadAjax div.loader {
+    background: url("/images/ajax_load.gif") no-repeat;
+}
+
+.load-content {
+    background: url("/images/load.gif") no-repeat;
+    margin: 0 auto;
+    padding: 10px 0;
+    width: 100px;
+    display: none;
+}
+
+.form__com {
+
+
+}
+.form__com .form-control {
+
+}
