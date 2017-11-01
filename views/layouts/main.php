@@ -67,7 +67,6 @@ $options = Options::find()->where(['id'=>1000,'status'=>1])->one();
         <div class="circle-block circle-block-style-4"></div>
     </div>
 </div>
-
 <div id="main-wrapper">
 
     <header id="header-section-1" class="header-section header-style-1">
