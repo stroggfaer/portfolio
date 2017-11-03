@@ -1,10 +1,6 @@
 <?php
 
-
-
 ?>
-
-
 <div id="hero-section-1" class="hero-section white-section border-bottom">
     <!-- Section Container -->
     <div class="section-container">
@@ -33,11 +29,11 @@
                         <!-- Social Icons Block -->
                         <div class="social-icons-block-mod  text-center wow bounce " data-wow-delay="3s" >
                             <ul>
-                                <li><a href="#" title="Facebook" class="social-btn f "><span  class="ion-social-facebook"></span></a></li>
-                                <li><a href="#" title="Google Plus" class="social-btn"><span class="ion-social-googleplus"></span></a></li>
-                                <li><a href="#" title="Twitter" class="social-btn t"><span class="ion-social-twitter"></span></a></li>
-                                <li><a href="#" title="git" class="social-btn git"><span class="ion-social-github"></span></a></li>
-                                <li><a href="#" title="git" class="social-btn git in"><span class="ion-social-instagram"></span></a></li>
+                                <li><a target="_blank" href="https://www.facebook.com/ruslan.zstrogg" title="Facebook" class="social-btn f "><span  class="ion-social-facebook"></span></a></li>
+                                <li><a target="_blank" href="https://plus.google.com/u/0/+%D0%A0%D1%83%D1%81%D0%BB%D0%B0%D0%BD%D0%A0%D0%BE%D0%B1%D0%BE%D1%82%D1%80%D0%BE%D0%BD" title="Google Plus" class="social-btn"><span class="ion-social-googleplus"></span></a></li>
+                                <li><a target="_blank" href="https://twitter.com/Rendzhifayer" title="Twitter" class="social-btn t"><span class="ion-social-twitter"></span></a></li>
+                                <li><a target="_blank" href="https://github.com/stroggfaer" title="git" class="social-btn git"><span class="ion-social-github"></span></a></li>
+                                <li><a target="_blank" href="https://www.instagram.com/rendzhifaer/" title="git" class="social-btn git in"><span class="ion-social-instagram"></span></a></li>
                             </ul>
                         </div><!-- /End Social Icons Block -->
 
@@ -87,17 +83,57 @@
 </div><!-- /End Team 11 --><!-- Portfolio 2
             ==================================================================== -->
 
-<div id="portfolio-section-2" class="portfolio-section white-section ">
+<!-- CTA 16-->
+<div id="cta-section-16" class="cta-section black-section hidden">
+    <!-- Section Container -->
+    <div class="section-container">
+        <!-- Background Image Block -->
+        <div class="bg">
+            <img src="images/bg/bg101.jpg" alt="">
+        </div><!-- /End Background Image Block -->
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <!-- Title Block -->
+                <div class="col-lg-10 col-lg-offset-1 col-md-12 title-block">
+                    <!-- Title Block Container -->
+                    <div class="title-block-container text-center white-content">
+                        <!-- Title -->
+                        <h2>МОЙ ИНСТРУМЕНТЫ</h2>
+                        <!-- Line Separator -->
+                        <div class="line-separator"></div>
+                        <div class="row">
 
+                            <div class="col-md-3"><img src="images/tools/200px-LESS_Logo.svg.png" /></div>
+                            <div class="col-md-3"><img src="images/tools/200px-LESS_Logo.svg.png" /></div>
+
+
+                            <div class="col-md-3"><img src="images/tools/200px-LESS_Logo.svg.png" /></div>
+                            <div class="col-md-3"><img src="images/tools/200px-LESS_Logo.svg.png" /></div>
+
+                        </div>
+
+                    </div><!-- /End Title Block Container -->
+                </div><!-- /End Title Block -->
+
+
+            </div><!-- /End row -->
+        </div><!-- /End container -->
+    </div><!-- /End Section Container -->
+</div><!-- /End CTA 16 -->
+
+
+<div id="portfolio-section-2" class="portfolio-section white-section ">
     <?=\app\components\WPortfolio::widget()?>
 </div><!-- /End Portfolio 2 --><!-- Pricing 9
             ==================================================================== -->
 
 
-<div id="content-section-11" class="content-section wow fadeIn">
+<div id="content-section-11" class="content-section ">
     <div class="bg"><img src="/images/bg/bg10.jpg" alt="" class="ad"></div>
     <!-- Section Container -->
-    <div class="section-container white">
+    <div class="section-container white wow fadeIn">
         <!-- Title Block -->
         <div class="col-lg-10 col-lg-offset-1 col-md-12 title-block ">
             <!-- Title Block Container -->
@@ -167,9 +203,9 @@
             ==================================================================== -->
 
 <!-- Pricing 3 ==================================================================== -->
-<div id="pricing-section-3" class="pricing-section white-section wow fadeIn">
+<div id="pricing-section-3" class="pricing-section white-section ">
     <!-- Section Container -->
-    <div class="section-container">
+    <div class="section-container wow fadeIn">
         <!-- container -->
         <div class="container container-com">
             <!-- row -->
@@ -181,7 +217,7 @@
                         <!-- Title -->
                         <h2 id="price">Цены</h2>
                         <!-- Description -->
-                        <p>Release bandwidth user experience research &amp; development branding termsheet business plan advisor analytics ecosystem entrepreneur freemium.</p>
+                        <p>В данном разделе кратко описаны основные услуги, которые я с могу оказать на данный момент.</p>
                         <!-- Line Separator -->
                         <div class="line-separator"></div>
                     </div><!-- /End Title Block Container -->
@@ -189,7 +225,6 @@
 
                 <!-- Pricing Tables Wrapper -->
                 <div class="pricing-tables-wrapper ">
-
 
                     <!-- Pricing Block -->
                     <div class="col-md-4 col-sm-6 pricing-block pricing-block-style-1">
@@ -199,7 +234,7 @@
                             <!-- Pricing Block Title -->
                             <div class="pricing-block-title">
                                 <h1>Верстка макета</h1>
-                                <p>Эконом</p>
+                                <p>Стандарт</p>
                             </div><!-- /End Pricing Block Title -->
 
                             <!-- Pricing Block Price -->
@@ -214,51 +249,50 @@
                             <!-- Pricing Block Features -->
                             <div class="pricing-block-features">
                                 <ul>
-                                    <li>Адаптивная верстка</li>
-                                    <li>20 Emails</li>
-                                    <li>1 FTP account</li>
-                                    <li>1 Domain name</li>
-                                    <li>20GB Disk space</li>
+                                    <li>Цена за 1 страницу</li>
+                                    <li>Статичная верстка</li>
+                                    <li>Корректировка сайта*</li>
+                                    <li>Средние сроки – от 3 дней</li>
                                 </ul>
                             </div><!-- /End Pricing Block Features -->
-                        </div><!-- /End Pricing Block Container -->
+                        </div><!-- /End Pricing  Block Container -->
                     </div><!-- /End Pricing Block -->
 
-
                     <!-- Pricing Block -->
-                    <div class="col-md-4 col-sm-6 pricing-block pricing-block-style-1">
+                    <div class="col-md-4 col-sm-6 pricing-block pricing-block-style-1 ">
                         <!-- Pricing Block Container -->
-                        <div class="pricing-block-container">
-
+                        <div class="pricing-block-container open">
+                            <!-- Ribbon Block -->
+                            <div class="ribbon-block ribbon-block-style-2">ХИТ</div>
                             <!-- Pricing Block Title -->
                             <div class="pricing-block-title">
                                 <h1>Одностраничник</h1>
-                                <p>Верстка макета</p>
+                                <p>landing page</p>
                             </div><!-- /End Pricing Block Title -->
 
                             <!-- Pricing Block Price -->
                             <div class="pricing-block-price">
                                 <h2>
-                                    <span class="currency">$</span>
-                                    <span class="amount">999</span>
-                                    <span class="duration">/MO</span>
+                                    <span class="currency">от</span>
+                                    <span class="amount">5 999</span>
+                                    <span class="duration">р.</span>
                                 </h2>
                             </div><!-- /End Pricing Block Price -->
 
                             <!-- Pricing Block Features -->
                             <div class="pricing-block-features">
                                 <ul>
-                                    <li>10 Website</li>
-                                    <li>200 Emails</li>
-                                    <li>10 FTP account</li>
-                                    <li>10 Domain name</li>
-                                    <li>200GB Disk space</li>
+                                    <li>Статичная верстка</li>
+                                    <li>Программная часть</li>
+                                    <li>Виджеты (Онлайн-консультант, яндекс метрика, заказать звонок)</li>
+                                    <li>Хостинг на 3 месяца в подарок</li>
+                                    <li>Корректировка сайта*</li>
+                                    <li>Средние сроки – от 5 дней</li>
                                 </ul>
                             </div><!-- /End Pricing Block Features -->
 
                         </div><!-- /End Pricing Block Container -->
                     </div><!-- /End Pricing Block -->
-
 
                     <!-- Pricing Block -->
                     <div class="col-md-4 col-sm-6 pricing-block pricing-block-style-1">
@@ -274,49 +308,49 @@
                             <!-- Pricing Block Price -->
                             <div class="pricing-block-price">
                                 <h2>
-                                    <span class="currency">$</span>
-                                    <span class="amount">2 999</span>
-                                    <span class="duration">/MO</span>
+                                    <span class="currency">от</span>
+                                    <span class="amount">3 999</span>
+                                    <span class="duration">р.</span>
                                 </h2>
                             </div><!-- /End Pricing Block Price -->
 
                             <!-- Pricing Block Features -->
                             <div class="pricing-block-features">
                                 <ul>
-                                    <li>30 Website</li>
-                                    <li>600 Emails</li>
-                                    <li>30 FTP account</li>
-                                    <li>30 Domain name</li>
-                                    <li>600GB Disk space</li>
+                                    <li>Подбор дизайна</li>
+                                    <li>Верстка</li>
+                                    <li>Программная часть</li>
+                                    <li>Хостинг на 3 месяца в подарок</li>
+                                    <li>Обслуживания сайта на 3 месяца</li>
+                                    <li>Средние сроки – от 5 дней</li>
                                 </ul>
                             </div><!-- /End Pricing Block Features -->
 
                         </div><!-- /End Pricing Block Container -->
                     </div><!-- /End Pricing Block -->
 
-
                 </div><!-- /End Pricing Tables Wrapper -->
 
-
             </div><!-- /End row -->
+            <br>
+            <p class="hidden">*-</p>
         </div><!-- /End container -->
 
-
     </div><!-- /End Section Container -->
+
 </div><!-- /End Pricing 3 -->
 
-<div id="hero-section-15" class="hero-section black-section wow fadeIn">
+<div id="hero-section-15" class="hero-section black-section ">
     <!-- Section Container -->
     <div class="section-container">
 
 
         <!-- Background Image Block -->
-        <div class="background-image-block parallax-effect lpbuilder-background">
+        <div class="background-image-block lpbuilder-background">
             <img src="images/bg/bg8.jpg" alt="" style="top: -85.5px; transform: translate(-50%, 0px);">
         </div><!-- /End Background Image Block -->
-
         <!-- container -->
-        <div class="container">
+        <div class="container wow fadeIn">
             <!-- row -->
             <div class="row">
                 <!-- Title Block -->
@@ -329,18 +363,13 @@
                         <!-- Description -->
                         <p>Заполните форму заявки сейчас,<br> и я свяжусь с вами в ближайшее время</p>
                         <div class="form-contact">
-                            <form role="form">
-                                <div class="form-group">
-                                    <input type="type" class="form-control string" id="name" placeholder="Ваше имя">
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control string" id="email" placeholder="Ваш email">
-                                </div>
-                                <div class="form-group">
-                                    <textarea  class="form-control text" rows="3" placeholder="Дополнительная информация"></textarea>
-                                </div>
-                                <div class="text-center"><button type="submit" class="btn btn-lpbuilder wave-effect">Отправить</button></div>
-                            </form>
+                            <div class="contact">
+                               <ul>
+                                   <li class="ion-social-skype"><a class="white" href="skype:stroggfri?chat">stroggfri</a></li>
+                                   <li class="ion-android-mail"><a href="mailto:rendzhi@mail.ru">rendzhi@mail.ru</a></li>
+                               </ul>
+                            </div>
+                            <?=\app\components\WForma::widget(['model'=>$order])?>
                         </div>
 
                     </div><!-- /End Title Block Container -->

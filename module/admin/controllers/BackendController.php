@@ -60,6 +60,11 @@ class BackendController extends Controller
                     ],
                 ],
             ],*/
+            'out' => [
+                'title' => 'Выйти',
+                'link' => '/site/logout',
+                'status' => 1,
+            ],
 
         ];
 

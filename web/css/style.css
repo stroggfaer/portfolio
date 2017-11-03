@@ -119,7 +119,7 @@ a:focus { outline: thin dotted; }
     color: #ffffff !important;
 }
 .black-background-color { background-color: #121212 !important; }
-.black-background-color.ribbon-block-style-2::after { border-color: #121212; }
+
 
 
 /* Transparent Black Background
@@ -1659,6 +1659,7 @@ a.btn:last-of-type { margin-right: 0; }
     border-radius: 2px;
     position: absolute;
     background-color: rgba(0, 0, 0, 0.15);
+    background: #252525;
 
     -webkit-transition: all 0.30s ease-in-out;
        -moz-transition: all 0.30s ease-in-out;
@@ -7447,7 +7448,7 @@ audio {
 /* Wrapper
 ----------------------------------------------------------------------------- */
 .ribbon-block-style-2 {
-    left: 0;
+    left: -5px;
     top: 15px;
     width: auto;
     height: 36px;
@@ -7459,7 +7460,7 @@ audio {
     line-height: 16px;
     white-space: nowrap;
     text-overflow: ellipsis;
-    padding: 11px 0 9px 15px;
+    padding: 11px 15px 9px;
     background-color: #000;
 }
 
@@ -7479,19 +7480,6 @@ audio {
 }
 
 
-/* Tail
------------------------------------------------------------------------------ */
-.ribbon-block-style-2::after {
-    width: 0;
-    height: 0;
-    bottom: 0;
-    z-index: -1;
-    content: '';
-    right: -33px;
-    position: absolute;
-    border: 18px solid #000;
-    border-right-color: transparent !important;
-}
 
 
 
@@ -10619,7 +10607,7 @@ ul.nav-tabs > li.tab-button > a:hover::after { opacity: 1; }
     width: 100%;
     display: block;
     padding-top: 3px;
-    overflow: hidden;
+   /* overflow: hidden;*/
     position: relative;
 }
 .pricing-tables-wrapper.correct-border {
@@ -10794,6 +10782,7 @@ ul.nav-tabs > li.tab-button > a:hover::after { opacity: 1; }
     margin: 0 auto;
     font-weight: 500;
     padding-top: 40px;
+    min-height: 230px;
 }
 
 /* List
@@ -10830,11 +10819,7 @@ ul.nav-tabs > li.tab-button > a:hover::after { opacity: 1; }
 /* Container
 ----------------------------------------------------------------------------- */
 .pricing-block-style-1 .pricing-block-container {
-    border: 2px solid #000;
 
-    -webkit-box-shadow: none;
-       -moz-box-shadow: none;
-            box-shadow: none;
 }
 
 

@@ -12,7 +12,8 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\SignupForm;
 use app\controllers\AppController;
-
+use app\models\Orders;
+use yii\widgets\ActiveForm;
 class SiteController extends AppController
 {
     /**
@@ -35,7 +36,7 @@ class SiteController extends AppController
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    'logout' => ['get'],
                 ],
             ],
         ];
@@ -67,7 +68,31 @@ class SiteController extends AppController
         $pages = Pages::find()->where(['id'=>1000])->one();
         // Сео настройки;
         if(!empty($pages)) $this->setMeta((!empty($pages->seo_title) ? $pages->seo_title : $pages->title),$pages->keywords,$pages->description);
-        return $this->render('index');
+
+        $order = new Orders();
+        // Отправка заявка;
+
+
+        if (Yii::$app->request->isAjax &&   Yii::$app->request->post('send')) {
+
+            $order->load(Yii::$app->request->post());
+
+            $response = Yii::$app->response;
+            $response->format = \yii\web\Response::FORMAT_JSON;
+
+            if($order->validate()) {
+                $order->group_id = 1000;
+                if(!$order->save(true)) print_arr($order->getErrors());
+                 return $response = ['success'=>true, 'text'=>'Ваша заявка отправлена!<br> В ближайшее время свяжусь с вами!'];
+            }else{
+                return ActiveForm::validate($order);
+            }
+        }
+
+
+        return $this->render('index',[
+            'order'=>$order
+        ]);
     }
 
     /**
@@ -103,10 +128,13 @@ class SiteController extends AppController
      */
     public function actionLogout()
     {
+
         Yii::$app->user->logout();
 
         return $this->goHome();
     }
+
+/*
     // Регистрация;
     public function actionSignup()
     {
@@ -121,13 +149,8 @@ class SiteController extends AppController
         return $this->render('signup', [
             'model' => $model,
         ]);
-    }
-
-    /**
-     * Displays contact page.
-     *
-     * @return Response|string
-     */
+    } */
+    /*
     public function actionContact()
     {
         $model = new ContactForm();
@@ -139,15 +162,16 @@ class SiteController extends AppController
         return $this->render('contact', [
             'model' => $model,
         ]);
-    }
+    } */
 
     /**
      * Displays about page.
      *
      * @return string
      */
+    /*
     public function actionAbout()
     {
         return $this->render('about');
-    }
+    }*/
 }
