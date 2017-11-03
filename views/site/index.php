@@ -141,7 +141,7 @@
                 <!-- Title -->
                 <h2 >ПОРЯДОК РАБОТЫ</h2>
                 <!-- Description -->
-                <p>для заказа дизайна нужно заполнить бриф</p>
+                <p></p>
                 <div class="line-separator white"></div>
             </div><!-- /End Title Block Container -->
         </div>
