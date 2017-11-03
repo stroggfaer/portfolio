@@ -1,6 +1,7 @@
 var load = true;
 
 $(window).load(function() {
+
     // Преаолдер;
     $('.loader-icon').removeClass('spinning-cog').addClass('shrinking-cog');
     $('.loader-background').delay(1300).fadeOut();
@@ -95,28 +96,13 @@ jQuery(document).ready(function () {
     }
 
         //Initialize filterizr with default options
-        $('.filtr-container').filterizr();
-
-
+       if($('.filtr-container').length) $('.filtr-container').filterizr();
+        console.log($('.filtr-container').length );
         //Simple filter controls
         $('.simplefilter li').click(function() {
             $('.simplefilter li').removeClass('active');
             $(this).addClass('active');
         });
-        //Multifilter controls
-        $('.multifilter li').click(function() {
-            $(this).toggleClass('active');
-        });
-        //Shuffle control
-        $('.shuffle-btn').click(function() {
-            $('.sort-btn').removeClass('active');
-        });
-        //Sort controls
-        $('.sort-btn').click(function() {
-            $('.sort-btn').removeClass('active');
-            $(this).addClass('active');
-        });
-
 
 
     // Якорь;
@@ -134,6 +120,7 @@ jQuery(document).ready(function () {
     });
 
     if(load) {
+
         setTimeout(function() {
 
             printText(
@@ -168,9 +155,10 @@ jQuery(document).ready(function () {
 
 // Функция печатание;
 function printText(id, text, speed){
-
+    if(!id.length) return false;
     var ele = document.getElementById(id),
         txt = text.join("").split("");
+
     // Интервал букв;
     var interval = setInterval(function(){
         if(!txt[0]){return clearInterval(interval);};
@@ -180,12 +168,44 @@ function printText(id, text, speed){
     return false;
 };
 
-//
-$(window).on('load', function () {
-    setTimeout(function() {
-        $('#loader').remove();
-    },2000);
+
+// Обработка placeholder;
+$(document).on('focus','.placeholder[placeholder]',function(){
+    $(this).attr('data-text',$(this).attr('placeholder')).attr('placeholder','');
+    return false;
+});
+$(document).on('blur','.placeholder[placeholder]',function(){
+    $(this).attr('placeholder',$(this).attr('data-text'));
+    return false;
 });
 
+// Отправка заявка;
+$(document).on('beforeSubmit','#orders', function (event) {
+   return false;
+}).on('ajaxBeforeSend','#orders', function (event, jqXHR, textStatus) {
+    $('#buttonAj').button('loading');
+}).on('ajaxComplete','#orders', function (event, jqXHR, textStatus) {
+    var response = jqXHR.responseJSON;
+        $('#buttonAj').button('reset');
+        if(isset(response) && response.success) {
+            var element = $("#orders-modal");
+                element.modal('show');
+                element.find('.alert').html(response.text);
+                setTimeout(function() {
+                    element.modal('hide');
+                },5000);
+                $('#orders input,#orders textarea').val('');
+            return false;
+        }
+});
 
+function isset(variable) {
+    return (typeof(variable) != "undefined" && variable !== null);
+}
+
+$(document).ready(function(){
+    setTimeout(function() {
+        $('#loader').remove();
+    },4000);
+});
 console.info('global--OK');

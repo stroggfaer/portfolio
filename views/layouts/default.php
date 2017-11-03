@@ -9,7 +9,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\DefaultAsset;
 use app\models\Pages;
-
+use app\models\Options;
 DefaultAsset::register($this);
 
 if (!Yii::$app->user->isGuest) {
