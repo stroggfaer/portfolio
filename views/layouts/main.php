@@ -10,6 +10,8 @@ use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use app\models\Pages;
 use app\models\Options;
+use yii\bootstrap\Modal;
+
 
 AppAsset::register($this);
 
@@ -56,7 +58,16 @@ $options = Options::find()->where(['id'=>1000,'status'=>1])->one();
         <div class="loader-background color-flip"></div>
         <img class="loader-icon spinning-cog " src="/images/cog03.svg" data-cog="cog03">
     </div>
+
+    <?php Modal::begin(['header' => '<h4></h4>',
+        'id' => 'orders-modal',
+        'size'=>'modal-sm',
+    ]);?>
+    <div class="alert alert-success"></div>
+    <?php Modal::end(); ?>
 <?php endif; ?>
+
+
 <!-- UP Button
 ======================================================================== -->
 <div id="up-button"><a href="#" title="To Top"><i class="fa fa-angle-up"></i></a></div>

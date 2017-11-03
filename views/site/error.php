@@ -9,19 +9,35 @@ use yii\helpers\Html;
 
 $this->title = $name;
 ?>
-<div class="site-error">
+<!-- special Section 1
+          ==================================================================== -->
+<div id="special-section-1" class="special-section grey-section section-lg-padding">
+    <!-- Section Container -->
+    <div class="section-container">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+        <!-- container -->
+        <div class="container  ">
+            <!-- row -->
+            <div class="row">
 
-    <div class="alert alert-danger">
-        <?= nl2br(Html::encode($message)) ?>
-    </div>
+                <!-- Title Block -->
+                <div class="col-lg-10 col-lg-offset-1 col-md-12 title-block">
+                    <!-- Title Block Container -->
+                    <div class="title-block-container text-center ">
 
-    <p>
-        The above error occurred while the Web server was processing your request.
-    </p>
-    <p>
-        Please contact us if you think this is a server error. Thank you.
-    </p>
+                        <!-- Title -->
+                        <h1 class="lg-heading text-danger wow hinge" data-wow-delay="3s"  >404!</h1>
 
-</div>
+                        <!-- Description -->
+                        <p><b>404…</b> Увы, но эта страница где-то затерялась в галактике Интернета</p>
+
+                        <!-- Buttons -->
+                        <a href="/" class="btn btn-lpbuilder wave-effect">Назад домой</a>
+
+                    </div><!-- /End Title Block Container -->
+                </div><!-- /End Title Block -->
+            </div><!-- /End row -->
+        </div><!-- /End container -->
+    </div><!-- /End Section Container -->
+</div><!-- /End Special Section 1 -->
+
