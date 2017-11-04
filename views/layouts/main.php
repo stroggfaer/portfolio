@@ -15,7 +15,7 @@ use yii\bootstrap\Modal;
 
 AppAsset::register($this);
 
-/*GIT*/
+/*GIT +*/
 if (!Yii::$app->user->isGuest) {
     //  print_arr(Yii::$app->user);
    // echo '++';
