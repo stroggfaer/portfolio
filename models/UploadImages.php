@@ -38,6 +38,7 @@ class UploadImages extends Model
             if(!empty($width)) {
                 $resizeImages = new ResizeImages($fileDir);
                 $resizeImages->resizeImage($width,$height,$option);
+                $resizeImages->saveImage($fileDir, 100);
                 $resizeImages->mCopy($fileDir,$file . '_min.' . $this->imageMax->extension,300);
             }
             return true;
