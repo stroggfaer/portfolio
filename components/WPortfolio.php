@@ -53,7 +53,7 @@ class WPortfolio extends Widget{
                             <div class="filtr-container wow fadeIn">
                                 <?php foreach($portfolio as $key=>$item): ?>
                                     <div class="col-xs-6 col-sm-4 filtr-item" data-category="<?=$item->lineArray?>" data-sort="">
-                                        <img class="img-responsive" src="<?=Portfolio::getImageHref($item->id)?>" alt="<?=$item->title?>">
+                                        <img class="img-responsive" src="<?=Portfolio::getImageHref($item->id,true)?>" alt="<?=$item->title?>">
                                         <div class="item-desc">
                                             <h3><?=$item->title?></h3>
                                             <p><?=$item->description?></p>
