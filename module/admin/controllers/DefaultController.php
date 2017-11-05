@@ -447,9 +447,6 @@ class DefaultController extends BackendController
         // Изображения;
         $images = new UploadImages();
 
-
-
-
         // Добавляем запись;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
 

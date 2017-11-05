@@ -64,7 +64,7 @@ class PostSearchPortfolioGroup extends PortfolioGroups
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'description', $this->description])->orderBy('position ASC');;
+            ->andFilterWhere(['like', 'description', $this->description])->orderBy('position ASC');
 
         return $dataProvider;
     }
