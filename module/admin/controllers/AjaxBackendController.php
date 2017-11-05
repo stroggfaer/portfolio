@@ -40,7 +40,7 @@ class AjaxBackendController extends BackendController
             if($mainCoverCount < 1) {
                 $mainCover = Images::find()->where(['id' => $images->id])->one();
                 $mainCover->main = 1;
-                $mainCover->update(false);
+                $mainCover->update(false); // Обновления запрос;
             }
             // Путь к изображением;
             $path = $_SERVER['DOCUMENT_ROOT'] . $_post['path'] . $images->id;
