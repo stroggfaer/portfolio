@@ -43,7 +43,7 @@ class WPortfolio extends Widget{
                         <!-- Filter Controls - Simple Mode -->
                         <div class="row">
                             <ul class="simplefilter">
-                                <li class="active" data-filter="all">All</li>
+                                <li class="active" data-filter="all">Все</li>
                                 <?php foreach($portfolioGroups as $key=>$group): ?>
                                     <li data-filter="<?=$group->id?>"><?=$group->title?></li>
                                 <?php endforeach; ?>
@@ -71,7 +71,7 @@ class WPortfolio extends Widget{
                 </div><!-- /End Filter Section -->
 
                 <!-- button-block -->
-                <div class="col-md-12 button-block">
+                <div class="col-md-12 button-block hidden">
                     <div class="button-block-container text-center">
                         <a href="#" title="View All Projects" class="btn btn-lpbuilder wave-effect">Загрузить еще</a>
                     </div>

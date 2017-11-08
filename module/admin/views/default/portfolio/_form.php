@@ -32,6 +32,7 @@ $position = $portfolio->position += 1;
     <?= $form->field($model, 'title')->textInput(['maxlength' => true])->label('Название') ?>
 
     <?php // $form->field($model, 'description')->textarea(['rows' => 6])->label('Описание');  ?>
+     <?php if(false): ?>
     <?= $form->field($model, 'description')->widget(CKEditor::className(), [
         'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
             'preset' => 'standard', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
@@ -42,6 +43,10 @@ $position = $portfolio->position += 1;
 
 
     ])->label('Описание');  ?>
+    <?php endif; ?>
+    <?= $form->field($model, 'description')->textarea(['rows' => 6])->label('Описание'); ?>
+
+    
     <?= $form->field($model, 'url')->textInput(['maxlength' => true])->label('Ссылка') ?>
     <?= $form->field($model, 'git')->textInput(['maxlength' => true])->label('Ссылка на git') ?>
     <?php

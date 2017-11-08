@@ -12769,6 +12769,7 @@ canvas{
     text-align: center;
     position: relative;
     color: #fff;
+    margin-top:35px;
 }
 .filtr-container  .filtr-item .item-desc h3::after{
     border-bottom: 1px solid #fff;
@@ -12783,6 +12784,7 @@ canvas{
 .filtr-container .filtr-item .item-desc p {
     font-size: 14px;
     padding-top: 15px;
+    text-align: center;
 }
 .filtr-container .button-t {
     bottom: 5px;
