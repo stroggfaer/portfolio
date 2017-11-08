@@ -34,7 +34,8 @@ class Orders extends \yii\db\ActiveRecord
     {
         return [
             [['group_id', 'status'], 'integer'],
-            [['name', 'email',],'required'],
+            [['name', 'email'],'required','message'=>''],
+          
             [['email'], 'email'],
             [['text'], 'string'],
             [['date'], 'safe'],
