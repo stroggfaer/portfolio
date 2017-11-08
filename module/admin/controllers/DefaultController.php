@@ -442,6 +442,7 @@ class DefaultController extends BackendController
      */
     public function actionUpdatePortfolio($id)
     {
+
         $model = $this->findModelPortfolio($id);
 
         // Изображения;
@@ -479,6 +480,7 @@ class DefaultController extends BackendController
             ]);
         }
     }
+
 
     /**
      * Deletes an existing Portfolio model.

@@ -41,6 +41,7 @@ class ResizeImages extends Model
     }
 
     public function resizeImage($newWidth, $newHeight, $option = "auto") {
+
         //Получаем оптимальную ширину и высоту - зависит от параметра $option;
         $optionArray = $this->getDimensions($newWidth, $newHeight, $option);
         $optimalWidth  = $optionArray['optimalWidth'];
