@@ -98,7 +98,7 @@ $options = Options::find()->where(['id'=>1000,'status'=>1])->one();
                                     <!-- Navbar Header -->
                                     <div class="navbar-header">
                                         <!-- Logo -->
-                                        <a href="#" class="navbar-brand" title="">
+                                        <a href="/" class="navbar-brand no_focus" title="">
                                             <div class="desctop"><img src="/images/logo.png" alt="" class="logo wow tada" data-wow-delay="5s"></div>
                                             <div class="mobile profi">
                                                 <img src="/images/logo-m.png" alt="" class="logo logo-m">
