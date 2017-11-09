@@ -68,7 +68,7 @@ a.no-transition {
 ----------------------------------------------------------------------------- */
 a:hover,
 a:focus {
-    color: #121212;
+    color: #ff561b;
     text-decoration: none;
 }
 a:focus { outline: thin dotted; }

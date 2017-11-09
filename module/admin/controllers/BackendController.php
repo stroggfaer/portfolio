@@ -31,12 +31,6 @@ class BackendController extends Controller
                 'title' => 'Пользователи',
                 'link' => '/admin/user/',
                 'status' => 1,
-                'items' => [
-                    [
-                        'link' => '/admin/catalog/create',
-                        'title' => 'Добавить категория',
-                    ],
-                ],
             ],
             'portfolio' => [
                 'title' => 'Управление портфолио',
@@ -44,22 +38,20 @@ class BackendController extends Controller
                 'status' => 1,
                 'items' => [
                     [
-                        'link' => '/admin/goods/create',
-                        'title' => 'Добавить товар',
+                        'link' => '/admin/portfolio-groups',
+                        'title' => 'Добавить группы портфолио',
+                    ],
+                    [
+                        'link' => '/admin/portfolio',
+                        'title' => 'Добавить портфолио',
                     ],
                 ],
             ],
-          /*  'orders' => [
-                'title' => 'Управление заказами',
+            'orders' => [
+                'title' => 'Заявки',
                 'link' => '/admin/orders/',
                 'status' => 1,
-                'items' => [
-                    [
-                        'link' => '/admin/goods/create',
-                        'title' => 'Заказы',
-                    ],
-                ],
-            ],*/
+            ],
             'out' => [
                 'title' => 'Выйти',
                 'link' => '/site/logout',

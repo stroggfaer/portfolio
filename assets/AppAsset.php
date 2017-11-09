@@ -41,6 +41,7 @@ class AppAsset extends AssetBundle
         'yii\bootstrap\BootstrapPluginAsset',
 
     ];
-
+    // Подключаем в шапку;
+    public $jsOptions = ['position' => \yii\web\View::POS_HEAD];
 
 }

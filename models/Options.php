@@ -42,10 +42,13 @@ class Options extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'logo' => 'Logo',
-            'description' => 'Description',
-            'status' => 'Status',
+            'title' => 'Название',
+            'logo' => 'Логотип',
+            'phone' => 'Телефон',
+            'email'=>'Email',
+            'url' => 'Аддрес',
+            'description' => 'Описание',
+            'status' => 'Активность',
         ];
     }
 }

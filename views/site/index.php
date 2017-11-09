@@ -8,7 +8,7 @@
         <div class="background-image-block parallax-effect lpbuilder-image">
             <div id="particles-js"></div>
             <div class="filter"></div>
-            <img src="/images/bg/bg4.jpg" alt="Parallax Image" style="top: -175px; transform: translate(-50%, 0px);">
+            <img src="/images/bg/bg4.jpg"  class="parallax-img" alt="">
 
         </div><!-- /End Background Image Block -->
         <!-- container -->
@@ -20,7 +20,7 @@
                     <!-- Title Block Container -->
                     <div class="title-block-container white-content text-center">
                         <!-- Description -->
-                        <p  style="height: 50px">
+                        <p>
                             <span id="printText"></span>
                             <span class="animated flash infinite" style="vertical-align: text-bottom;">|</span>
                         </p>
@@ -40,7 +40,13 @@
                     </div><!-- /End Title Block Container -->
                 </div><!-- /End Title Block -->
 
-
+                <div class="arrows js-anchor">
+                    <a href="#about" class="no_focus">
+                        <span class="arrow ion-ios-arrow-down"></span>
+                        <span class="arrow ion-ios-arrow-down"></span>
+                        <span class="arrow active ion-ios-arrow-down"></span>
+                    </a>
+                </div>
             </div><!-- /End row -->
         </div><!-- /End container -->
 
@@ -58,7 +64,7 @@
             <div class="title-block-container text-center">
 
                 <!-- Title -->
-                <h2 id="about">Обо мне</h2>
+                <h2 id="about" class="wow fadeIn">Обо мне</h2>
                 <!-- Line Separator -->
                 <div class="line-separator"></div>
                 <div class="row">
@@ -100,7 +106,7 @@
                     <!-- Title Block Container -->
                     <div class="title-block-container text-center white-content">
                         <!-- Title -->
-                        <h2>МОЙ ИНСТРУМЕНТЫ</h2>
+                        <h2 class="wow fadeIn">МОЙ ИНСТРУМЕНТЫ</h2>
                         <!-- Line Separator -->
                         <div class="line-separator"></div>
                         <div class="row">
@@ -139,7 +145,7 @@
             <!-- Title Block Container -->
             <div class="title-block-container text-center">
                 <!-- Title -->
-                <h2 >ПОРЯДОК РАБОТЫ</h2>
+                <h2 class="wow fadeIn">ПОРЯДОК РАБОТЫ</h2>
                 <!-- Description -->
                 <p></p>
                 <div class="line-separator white"></div>
@@ -215,7 +221,7 @@
                     <!-- Title Block Container -->
                     <div class="title-block-container text-center">
                         <!-- Title -->
-                        <h2 id="price">Цены</h2>
+                        <h2 id="price" class="wow fadeIn">Цены</h2>
                         <!-- Description -->
                         <p>В данном разделе кратко описаны основные услуги, которые я с могу оказать на данный момент.</p>
                         <!-- Line Separator -->

@@ -26,7 +26,7 @@ class WPortfolio extends Widget{
                             <!-- Title Block Container -->
                             <div class="title-block-container text-center">
                                 <!-- Title -->
-                                <h2 id="portfolio">Портфолио</h2>
+                                <h2 id="portfolio" class="wow fadeIn">Портфолио</h2>
                                 <!-- Description -->
                                 <p>Это всего лишь небольшой список моих работ.</p>
                                 <!-- Line Separator -->
@@ -50,7 +50,7 @@ class WPortfolio extends Widget{
                             </ul>
                         </div>
                         <div class="row">
-                            <div class="filtr-container wow fadeIn">
+                            <div class="filtr-container">
                                 <?php foreach($portfolio as $key=>$item): ?>
                                     <div class="col-xs-6 col-sm-4 filtr-item" data-category="<?=$item->lineArray?>" data-sort="">
                                         <img class="img-responsive" src="<?=Portfolio::getImageHref($item->id,true)?>" alt="<?=$item->title?>">
@@ -59,8 +59,8 @@ class WPortfolio extends Widget{
                                             <p><?=$item->description?></p>
                                             <a href="<?=Portfolio::getImageHref($item->id)?>" data-fancybox="gallery" class="top no_focus"><div class="ion-android-search show"></div></a>
                                             <div class="button-t">
-                                                <?php if($item->url):?><a href="<?=$item->url?>" target="_blank" class="ion-android-exit link" title=""></a><?php endif;?>
-                                                <?php if($item->git):?><a href="<?=$item->git?>" target="_blank" class="ion-social-octocat link" title=""></a><?php endif;?>
+                                                <?php if($item->url):?><a href="<?=$item->url?>" target="_blank" class="ion-android-exit link no_focus" title=""></a><?php endif;?>
+                                                <?php if($item->git):?><a href="<?=$item->git?>" target="_blank" class="ion-social-octocat link no_focus" title=""></a><?php endif;?>
                                             </div>
                                         </div>
                                     </div>

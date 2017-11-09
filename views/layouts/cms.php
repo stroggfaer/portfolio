@@ -8,9 +8,11 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\CmsAsset;
+use app\models\Options;
 
 CmsAsset::register($this);
 $session = Yii::$app->session;
+$options = Options::find()->where(['id'=>1000,'status'=>1])->one();
 
 ?>
 <?php $this->beginPage() ?>
@@ -36,9 +38,19 @@ $session = Yii::$app->session;
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                    <?php if(!empty(\Yii::$app->controller->actionNavigation)): ?>
-                    <?php foreach(\Yii::$app->controller->actionNavigation as $key=>$value): ?>
-                       <li class=""><a href="<?=$value['link']?>"><?=$value['title']?></a></li>
-                    <?php endforeach; ?>
+                        <?php foreach(\Yii::$app->controller->actionNavigation as $key=>$value): ?>
+                               <li class="dropdown">
+                                  <a <?= !empty($value['items']) ? 'class="dropdown-toggle" role="navigation"  data-toggle="dropdown"' : '' ?>href="<?=$value['link']?>"><?=$value['title']?><span style="margin-left: 5px" class="badge pull-right danger-bg">5</span></a>
+
+                                   <?php if(!empty($value['items'])): ?>
+                                       <ul class="dropdown-menu">
+                                          <?php foreach($value['items'] as $k=>$v): ?>
+                                              <li><a href="<?=$v['link']?>"><?=$v['title']?></a></li>
+                                          <?php endforeach; ?>
+                                       </ul>
+                                   <?php endif;?>
+                               </li>
+                        <?php endforeach; ?>
                     <?php endif; ?>
                 </ul>
              </div>
@@ -55,7 +67,7 @@ $session = Yii::$app->session;
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; <?=$options->title?> <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
