@@ -188,3 +188,13 @@ a.desc:after {
 .images_t .main{
     background: #12d24d;
 }
+.dropdown-menu {
+   background: #080808;
+}
+.dropdown-menu li a {
+    color: #9d9d9d
+}
+.dropdown-menu li a:hover {
+    background: #323232;
+    color: #9d9d9d
+}

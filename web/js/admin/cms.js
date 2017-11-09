@@ -1,3 +1,6 @@
+jQuery(document).ready(function () {
+
+});
 
 // Удалить изображения;
 function delete_images(image_id,id) {

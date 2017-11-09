@@ -5,12 +5,12 @@ namespace app\module\admin\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Pages;
+use app\models\Orders;
 
 /**
- * PostSearchPages represents the model behind the search form about `app\models\Pages`.
+ * PostSearchOrders represents the model behind the search form about `app\models\Orders`.
  */
-class PostSearchPages extends Pages
+class PostSearchOrders extends Orders
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class PostSearchPages extends Pages
     public function rules()
     {
         return [
-            [['id', 'status'], 'integer'],
-            [['url', 'title', 'seo_title', 'keywords', 'description', 'text'], 'safe'],
+            [['id', 'group_id', 'status'], 'integer'],
+            [['name', 'email', 'text', 'date'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class PostSearchPages extends Pages
      */
     public function search($params)
     {
-        $query = Pages::find();
+        $query = Orders::find();
 
         // add conditions that should always apply here
 
@@ -60,14 +60,13 @@ class PostSearchPages extends Pages
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'group_id' => $this->group_id,
+            'date' => $this->date,
             'status' => $this->status,
         ]);
 
-        $query->andFilterWhere(['like', 'url', $this->url])
-            ->andFilterWhere(['like', 'title', $this->title])
-            ->andFilterWhere(['like', 'seo_title', $this->seo_title])
-            ->andFilterWhere(['like', 'keywords', $this->keywords])
-            ->andFilterWhere(['like', 'description', $this->description])
+        $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'email', $this->email])
             ->andFilterWhere(['like', 'text', $this->text]);
 
         return $dataProvider;
