@@ -30,6 +30,9 @@ class Options extends \yii\db\ActiveRecord
     {
         return [
             [['status'], 'integer'],
+            [['email','adminEmail'], 'string'],
+            [['phone'], 'string', 'max' => 12],
+            [['url'], 'string', 'max' => 128],
             [['title'], 'string', 'max' => 60],
             [['logo', 'description'], 'string', 'max' => 128],
         ];
@@ -45,6 +48,7 @@ class Options extends \yii\db\ActiveRecord
             'title' => 'Название',
             'logo' => 'Логотип',
             'phone' => 'Телефон',
+            'adminEmail'=>'AdminEmail',
             'email'=>'Email',
             'url' => 'Аддрес',
             'description' => 'Описание',

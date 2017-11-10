@@ -4,6 +4,7 @@ namespace app\module\admin\controllers;
 use Yii;
 use yii\web\Controller;
 use app\assets\CmsAsset;
+
 /**
  * Default controller for the `admin` module
  */
@@ -15,6 +16,9 @@ class BackendController extends Controller
     public function init()
     {
         parent::init();
+
+        // Заявки из формы;
+        $ordersCount = \app\models\Orders::find()->where(['status'=>0])->count();
 
         $this->actionNavigation = [
             'main' => [
@@ -49,9 +53,21 @@ class BackendController extends Controller
             ],
             'orders' => [
                 'title' => 'Заявки',
+                'count'=> $ordersCount,
                 'link' => '/admin/orders/',
                 'status' => 1,
             ],
+            'service' => [
+                'title' => 'Сервис',
+                'link' => '/admin/options/',
+                'status' => 1,
+            ],
+            'options' => [
+                'title' => 'Настройка',
+                'link' => '/admin/options/',
+                'status' => 1,
+            ],
+
             'out' => [
                 'title' => 'Выйти',
                 'link' => '/site/logout',

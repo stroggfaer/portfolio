@@ -2,6 +2,16 @@ jQuery(document).ready(function () {
 
 });
 
+// Чекбокс пометить;
+$(document).on('click','.js-checkbox-column',function(){
+    loading('show');
+    $.post(window.location.href,{checkboxColumn:true,id:$(this).val(),status: $(this).filter(':checked').length},function(html){
+        $('.checkbox-column').html($(html).find('.checkbox-column').html());
+        loading('hide');
+    });
+    return false;
+});
+
 // Удалить изображения;
 function delete_images(image_id,id) {
     if (!confirm("Удалить?")) return false;

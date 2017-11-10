@@ -14,8 +14,8 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="orders-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-
-    <?= GridView::widget([
+    <div class="checkbox-column">
+       <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'rowOptions'   => function ($model, $key, $index, $grid) {
@@ -52,14 +52,16 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
 
             [
+
                 'class' => 'yii\grid\ActionColumn',
                 'template' => '{view}&nbsp;{delete}',
-                'headerOptions' => ['width' => '80'],
+                'headerOptions' => ['width' => 100],
                 'urlCreator'=>function($action, $model, $key, $index){
-                    return Url::to(['call','id'=>$model->id]);
+                    return Url::to([$action.'-orders','id'=>$model->id]);
                 }
 
             ],
         ],
     ]); ?>
+    </div>
 </div>
