@@ -28,7 +28,7 @@ class WPortfolio extends Widget{
                                 <!-- Title -->
                                 <h2 id="portfolio" class="wow fadeIn">Портфолио</h2>
                                 <!-- Description -->
-                                <p>Это всего лишь небольшой список моих работ.</p>
+                                <p>Небольшой список моих работ.</p>
                                 <!-- Line Separator -->
                                 <div class="line-separator"></div>
 
