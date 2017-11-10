@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Orders */
+/* @var $model app\models\Options */
 
-$this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Заявки', 'url' => ['orders']];
+$this->title = $model->title;
+$this->params['breadcrumbs'][] = ['label' => 'Настройка', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="orders-view">
+<div class="options-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Редактировать', ['update-orders', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Удалить', ['delete-orders', 'id' => $model->id], [
+        <?= Html::a('Редактировать', ['update-options', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Удалить', ['delete-options', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -29,11 +29,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'group_id',
-            'name',
+            'title',
+            'phone',
             'email:email',
-            'text:ntext',
-            'date',
+            'adminEmail:email',
+            'logo',
+            'url:url',
+            'description',
             'status',
         ],
     ]) ?>
