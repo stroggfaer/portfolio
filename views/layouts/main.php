@@ -269,6 +269,7 @@ $options = Options::find()->where(['id'=>1000,'status'=>1])->one();
     });
 
 </script>
+ <?=\app\components\html\WCounters::widget()?>
 </body>
 </html>
 <?php $this->endPage() ?>

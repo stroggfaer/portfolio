@@ -75,10 +75,10 @@
                         <div class="content-about">
                             <h3 class="title text-left">Здравствуйте,меня зовут Руслан</h3>
                             <div class="text text-left">
-                                Я web - разработчик. Занимаюсь создание сайтов.  Опыт работы  с  2010 года.  Имею ключевые  навыки<br>
+                                Я web - разработчик. Занимаюсь создание сайтов.  Опыт работы 7 лет.  Имею ключевые  навыки<br>
                                 <b>Front-end:</b>  HTML, CSS (Препроцессор LESS), javaScript/jQuery, Gulp, Webpack<br>
                                 <b>Back end:</b> PHP, Mysql/SQL, фреймворк Yii2 и другие технологии.
-                                <p>Осуществляю творческий подход в решении нестандартных задач.</p>
+                                <p>Творческий подход в решении нестандартных задач.</p>
                             </div>
                         </div>
                     </div>
@@ -106,7 +106,7 @@
                     <!-- Title Block Container -->
                     <div class="title-block-container text-center white-content">
                         <!-- Title -->
-                        <h2 class="wow fadeIn">МОЙ ИНСТРУМЕНТЫ</h2>
+                        <h2 class="wow fadeIn">МОИ ИНСТРУМЕНТЫ</h2>
                         <!-- Line Separator -->
                         <div class="line-separator"></div>
                         <div class="row">
@@ -186,7 +186,7 @@
                     <!-- Icon -->
                     <i class="ion-android-laptop icon-lg"></i>
                     <!-- Title -->
-                    <h4 class="white">Тестирование Проекта</h4>
+                    <h4 class="white">Тестирование </h4>
 
                 </div><!-- /End Content Block Container -->
             </div><!-- /End Content Block -->
@@ -223,7 +223,7 @@
                         <!-- Title -->
                         <h2 id="price" class="wow fadeIn">Цены</h2>
                         <!-- Description -->
-                        <p>В данном разделе кратко описаны основные услуги, которые я с могу оказать на данный момент.</p>
+                        <p>Основные услуги.</p>
                         <!-- Line Separator -->
                         <div class="line-separator"></div>
                     </div><!-- /End Title Block Container -->
@@ -339,7 +339,7 @@
 
             </div><!-- /End row -->
             <br>
-            <p class="hidden">*-</p>
+            <p>*-Корректировка сайта - внесение изменений по желанию клиента в течении 10 дней <b>БЕСПЛАТНО</b></p>
         </div><!-- /End container -->
 
     </div><!-- /End Section Container -->
