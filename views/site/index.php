@@ -25,7 +25,7 @@
                             <span class="animated flash infinite" style="vertical-align: text-bottom;">|</span>
                         </p>
                         <!-- Title -->
-                        <h1 class="wow fadeIn" data-wow-delay="2s">Full Stack Developer</h1>
+                        <h1 class="wow fadeIn" data-wow-delay="2s">Full Stack web Developer</h1>
                         <!-- Social Icons Block -->
                         <div class="social-icons-block-mod  text-center wow bounce " data-wow-delay="3s" >
                             <ul>
@@ -79,6 +79,7 @@
                                 <b>Front-end:</b>  HTML, CSS (Препроцессор LESS), javaScript/jQuery, Gulp, Webpack<br>
                                 <b>Back end:</b> PHP, Mysql/SQL, фреймворк Yii2 и другие технологии.
                                 <p>Творческий подход в решении нестандартных задач.</p>
+
                             </div>
                         </div>
                     </div>
@@ -88,46 +89,6 @@
     </div><!-- /End Section Container -->
 </div><!-- /End Team 11 --><!-- Portfolio 2
             ==================================================================== -->
-
-<!-- CTA 16-->
-<div id="cta-section-16" class="cta-section black-section hidden">
-    <!-- Section Container -->
-    <div class="section-container">
-        <!-- Background Image Block -->
-        <div class="bg">
-            <img src="images/bg/bg101.jpg" alt="">
-        </div><!-- /End Background Image Block -->
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-                <!-- Title Block -->
-                <div class="col-lg-10 col-lg-offset-1 col-md-12 title-block">
-                    <!-- Title Block Container -->
-                    <div class="title-block-container text-center white-content">
-                        <!-- Title -->
-                        <h2 class="wow fadeIn">МОИ ИНСТРУМЕНТЫ</h2>
-                        <!-- Line Separator -->
-                        <div class="line-separator"></div>
-                        <div class="row">
-
-                            <div class="col-md-3"><img src="images/tools/200px-LESS_Logo.svg.png" /></div>
-                            <div class="col-md-3"><img src="images/tools/200px-LESS_Logo.svg.png" /></div>
-
-
-                            <div class="col-md-3"><img src="images/tools/200px-LESS_Logo.svg.png" /></div>
-                            <div class="col-md-3"><img src="images/tools/200px-LESS_Logo.svg.png" /></div>
-
-                        </div>
-
-                    </div><!-- /End Title Block Container -->
-                </div><!-- /End Title Block -->
-
-
-            </div><!-- /End row -->
-        </div><!-- /End container -->
-    </div><!-- /End Section Container -->
-</div><!-- /End CTA 16 -->
 
 
 <div id="portfolio-section-2" class="portfolio-section white-section ">
@@ -246,6 +207,7 @@
                             <!-- Pricing Block Price -->
                             <div class="pricing-block-price">
                                 <h2>
+                                    <span class="old_price">1 500 <span class="duration">р.</span></span>
                                     <span class="currency">от</span>
                                     <span class="amount">999</span>
                                     <span class="duration">р.</span>
@@ -279,6 +241,7 @@
                             <!-- Pricing Block Price -->
                             <div class="pricing-block-price">
                                 <h2>
+                                    <span class="old_price">7 300 <span class="duration">р.</span></span>
                                     <span class="currency">от</span>
                                     <span class="amount">5 999</span>
                                     <span class="duration">р.</span>
@@ -314,6 +277,7 @@
                             <!-- Pricing Block Price -->
                             <div class="pricing-block-price">
                                 <h2>
+                                    <span class="old_price">5 500 <span class="duration">р.</span></span>
                                     <span class="currency">от</span>
                                     <span class="amount">3 999</span>
                                     <span class="duration">р.</span>
@@ -373,6 +337,7 @@
                                <ul>
                                    <li class="ion-social-skype"><a class="white" href="skype:stroggfri?chat">stroggfri</a></li>
                                    <li class="ion-android-mail"><a href="mailto:rendzhi@mail.ru">rendzhi@mail.ru</a></li>
+                                   <li class="ion-android-call"><a href="tel:+79658294371">+7 (965) 829 4371</a></li>
                                </ul>
                             </div>
                             <?=\app\components\WForma::widget(['model'=>$order])?>

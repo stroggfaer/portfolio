@@ -10713,7 +10713,12 @@ ul.nav-tabs > li.tab-button > a:hover::after { opacity: 1; }
     line-height: 1;
     display: inline-block;
 }
-
+.pricing-block-container .pricing-block-price span.old_price {
+    display: block;
+    font-size: 25px;
+    text-decoration: line-through;
+    color: #7a7a7a;
+}
 /* Currency
 --------------------------------------------------------- */
 .pricing-block-container .pricing-block-price .currency {
