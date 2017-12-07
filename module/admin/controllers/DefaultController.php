@@ -683,4 +683,12 @@ class DefaultController extends BackendController
         }
     }
 
+
+    // Настройка Телеграмма;
+    public function actionServiceApi() {
+        return $this->render('services/index', [
+            'model' => false,
+        ]);
+    }
+
 }

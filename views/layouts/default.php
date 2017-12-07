@@ -15,7 +15,7 @@ DefaultAsset::register($this);
 if (!Yii::$app->user->isGuest) {
   //  print_arr(Yii::$app->user);
 
-}elsesss
+}else{
 }
 $menu = Pages::find()->where(['status'=>1])->all();
 $options = Options::find()->where(['id'=>1000,'status'=>1])->one();
