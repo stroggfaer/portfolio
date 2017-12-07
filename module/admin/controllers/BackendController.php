@@ -59,7 +59,7 @@ class BackendController extends Controller
             ],
             'service' => [
                 'title' => 'Сервис',
-                'link' => '/admin/options/',
+                'link' => '/admin/service-api/',
                 'status' => 1,
             ],
             'options' => [
