@@ -686,6 +686,18 @@ class DefaultController extends BackendController
 
     // Настройка Телеграмма;
     public function actionServiceApi() {
+        
+       // \Yii::$app->bot->sendMessage(268585293, 'Hello world!');
+         $update =  \Yii::$app->bot->getUpdates();
+          $i = 0;
+          foreach($update as $client) {
+              print_arr($client);
+              // Запрос на квавиатуры;
+             // $keyboard = new \TelegramBot\Api\Types\ReplyKeyboardMarkup(array(array("Вопросы и ответы", "Заказ звонка", "Написать нам","Контакты")), true); // true for one-time keyboard
+             //\Yii::$app->bot->sendMessage(268585293, 'Пожалуйста, выберите тему, пользуясь кнопками внизу экрана.', null, false, null, $keyboard)
+          }
+        die();
+        
         return $this->render('services/index', [
             'model' => false,
         ]);
