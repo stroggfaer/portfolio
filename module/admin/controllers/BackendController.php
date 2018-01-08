@@ -59,8 +59,18 @@ class BackendController extends Controller
             ],
             'service' => [
                 'title' => 'Сервис',
-                'link' => '/admin/service-api/',
+                'link' => '/admin/services/',
                 'status' => 1,
+                'items' => [
+                    [
+                        'link' => '/admin/service-api/',
+                        'title' => 'Телеграмм бот',
+                    ],
+                    [
+                        'link' => '/admin/instagram-api',
+                        'title' => 'Инстограмм Api',
+                    ],
+                ],
             ],
             'options' => [
                 'title' => 'Настройка',

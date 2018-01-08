@@ -25,6 +25,7 @@ use app\module\admin\models\PostSearchOrders;
 use app\models\Options;
 use app\module\admin\models\PostSearchOptions;
 
+
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\helpers\Url;
@@ -683,10 +684,31 @@ class DefaultController extends BackendController
         }
     }
 
+/*----------Настройка Сервиса------------------------*/
+    // Сервисы;
+    public function actionServices(){
+        return $this->render('services/index', [
+            'model' => false,
+        ]);
+    }
 
     // Настройка Телеграмма;
     public function actionServiceApi() {
+
+        die('+');
+         \Yii::$app->bot->sendMessage(268585293, 'Hello world!');
+
         return $this->render('services/index', [
+            'model' => false,
+        ]);
+    }
+
+    /*--------------Инстограмм Api--------------*/
+    public function actionInstagramApi() {
+
+
+
+        return $this->render('instagram/index', [
             'model' => false,
         ]);
     }
