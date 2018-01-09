@@ -60,11 +60,17 @@ $options = Options::find()->where(['id'=>1000,'status'=>1])->one();
              </div>
         </div>
     </nav>
-
     <div class="container load-contents">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
+
+        <br>
+        <ul class="nav nav-pills">
+            <?php foreach(\Yii::$app->controller->actionMenu as $key=>$value): ?>
+                <li class="<?=$key == Yii::$app->controller->action->id ? 'active' : ''?>"><a href="<?=$value['link']?>"><?php if(!empty($value['class'])): ?><span class="<?=$value['class']?>"></span><?php endif; ?> <?=$value['title']?></a></li>
+            <?php endforeach; ?>
+        </ul>
         <?= $content ?>
     </div>
 </div>

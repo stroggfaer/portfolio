@@ -29,6 +29,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\helpers\Url;
 
+
 /**
  * DefaultController implements the CRUD actions for Pages model.
  */
@@ -710,14 +711,6 @@ class DefaultController extends BackendController
         ]);
     }
 
-    /*--------------Инстограмм Api--------------*/
-    public function actionInstagramApi() {
 
-
-
-        return $this->render('instagram/index', [
-            'model' => false,
-        ]);
-    }
 
 }

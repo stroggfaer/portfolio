@@ -12,6 +12,7 @@ class BackendController extends Controller
 {
 
     public $actionNavigation;
+    public  $actionMenu;
 
     public function init()
     {
@@ -67,7 +68,7 @@ class BackendController extends Controller
                         'title' => 'Телеграмм бот',
                     ],
                     [
-                        'link' => '/admin/instagram-api',
+                        'link' => '/admin/inst/index',
                         'title' => 'Инстограмм Api',
                     ],
                 ],
@@ -84,6 +85,51 @@ class BackendController extends Controller
                 'status' => 1,
             ],
 
+        ];
+
+        $this->actionMenu = [
+            'index' => [
+                'title' => 'Инстаграм',
+                'link' => '/admin/inst/index',
+                'class'=>'',
+                'status' => 1,
+            ],
+            'taskAdd' => [
+                'title' => 'Создать задачу',
+                'link' => '/admin/',
+                'class'=>'glyphicon glyphicon-plus',
+                'status' => 1,
+            ],
+            'task' => [
+                'title' => 'Задачи',
+                'link' => '/admin/',
+                'class'=>'',
+                'status' => 1,
+            ],
+            'accounts' => [
+                'title' => 'Аккаунты',
+                'link' => '/admin/inst/accounts',
+                'class'=>'',
+                'status' => 1,
+            ],
+            'post' => [
+                'title' => 'Автопостинг',
+                'link' => '/admin/',
+                'class'=>'',
+                'status' => 1,
+            ],
+            'list' => [
+                'title' => 'Списки',
+                'link' => '/admin/',
+                'class'=>'',
+                'status' => 1,
+            ],
+            'settings' => [
+                'title' => 'Настройки',
+                'link' => '/admin/',
+                'class'=>'',
+                'status' => 1,
+            ],
         ];
 
     }
