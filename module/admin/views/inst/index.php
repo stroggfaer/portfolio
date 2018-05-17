@@ -3,7 +3,8 @@ use yii\helpers\Html;
 $this->title = 'Инстаграм сервис';
 $this->params['breadcrumbs'][] = $this->title;
 
-print_arr(Yii::$app->controller->action->id);
+//print_arr(Yii::$app->controller->action->id);
+
 
 
 ?>

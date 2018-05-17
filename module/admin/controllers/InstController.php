@@ -13,6 +13,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+set_time_limit(0);
+date_default_timezone_set('UTC');
 
 /**
  * DefaultController implements the CRUD actions for Pages model.
@@ -49,6 +51,17 @@ class InstController extends BackendController
 
         public function actionIndex()
         {
+
+            try {
+                $accounts = InstLogin::find()->where(['status'=>1])->one();
+               // $login = \Yii::$app->inst->login($accounts->login, $accounts->password);
+            } catch (\Exception $e) {
+                $message =  'Something went wrong: '.$e->getMessage()."\n";
+                return $this->render('error/error',[
+                    'message' => $message
+                ]);
+            }
+
             // Запомнить текущий URL
             return $this->render('index');
         }

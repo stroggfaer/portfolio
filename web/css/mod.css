@@ -97,6 +97,7 @@ canvas{
     transition: all 0.3s ease 0s;
     width: 0;
 }
+
 #header-section-1  ul.navbar-nav > li > a:hover::after, #header-section-1  ul.navbar-nav > li.active a::after{
     width: 100%;
 }
