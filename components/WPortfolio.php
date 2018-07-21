@@ -10,7 +10,7 @@ class WPortfolio extends Widget{
 
     public function run()
     {
-        $portfolio = Portfolio::find()->where(['status'=>1])->all();
+        $portfolio = Portfolio::find()->where(['status'=>1])->orderBy('position ASC')->all();
         $portfolioGroups = PortfolioGroups::find()->where(['status'=>1])->all();
 
         ?>
