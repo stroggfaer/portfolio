@@ -74,5 +74,4 @@ class Images extends \yii\db\ActiveRecord {
             }
     }
 
-
 }
