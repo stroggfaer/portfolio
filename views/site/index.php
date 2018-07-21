@@ -241,9 +241,9 @@
                             <!-- Pricing Block Price -->
                             <div class="pricing-block-price">
                                 <h2>
-                                    <span class="old_price">7 300 <span class="duration">р.</span></span>
+                                    <span class="old_price">6 300 <span class="duration">р.</span></span>
                                     <span class="currency">от</span>
-                                    <span class="amount">5 999</span>
+                                    <span class="amount">4 999</span>
                                     <span class="duration">р.</span>
                                 </h2>
                             </div><!-- /End Pricing Block Price -->
@@ -279,7 +279,7 @@
                                 <h2>
                                     <span class="old_price">5 500 <span class="duration">р.</span></span>
                                     <span class="currency">от</span>
-                                    <span class="amount">3 999</span>
+                                    <span class="amount">4 999</span>
                                     <span class="duration">р.</span>
                                 </h2>
                             </div><!-- /End Pricing Block Price -->
@@ -291,7 +291,7 @@
                                     <li>Верстка</li>
                                     <li>Программная часть</li>
                                     <li>Хостинг на 3 месяца в подарок</li>
-                                    <li>Обслуживания сайта на 3 месяца</li>
+                                    <li>Обслуживания сайта на 2 месяца</li>
                                     <li>Средние сроки – от 5 дней</li>
                                 </ul>
                             </div><!-- /End Pricing Block Features -->

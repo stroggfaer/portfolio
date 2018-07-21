@@ -97,7 +97,7 @@ jQuery(document).ready(function () {
 
         //Initialize filterizr with default options
        if($('.filtr-container').length) $('.filtr-container').filterizr();
-        console.log($('.filtr-container').length );
+
         //Simple filter controls
         $('.simplefilter li').click(function() {
             $('.simplefilter li').removeClass('active');

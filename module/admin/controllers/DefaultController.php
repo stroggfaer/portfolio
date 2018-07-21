@@ -29,6 +29,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\helpers\Url;
 
+
 /**
  * DefaultController implements the CRUD actions for Pages model.
  */
@@ -683,10 +684,17 @@ class DefaultController extends BackendController
         }
     }
 
+/*----------Настройка Сервиса------------------------*/
+    // Сервисы;
+    public function actionServices(){
+        return $this->render('services/index', [
+            'model' => false,
+        ]);
+    }
 
     // Настройка Телеграмма;
     public function actionServiceApi() {
-        
+
        // \Yii::$app->bot->sendMessage(268585293, 'Hello world!');
          $update =  \Yii::$app->bot->getUpdates();
           $i = 0;
@@ -697,10 +705,12 @@ class DefaultController extends BackendController
              //\Yii::$app->bot->sendMessage(268585293, 'Пожалуйста, выберите тему, пользуясь кнопками внизу экрана.', null, false, null, $keyboard)
           }
         die();
-        
+
         return $this->render('services/index', [
             'model' => false,
         ]);
     }
+
+
 
 }

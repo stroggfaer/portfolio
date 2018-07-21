@@ -12,6 +12,7 @@ class BackendController extends Controller
 {
 
     public $actionNavigation;
+    public  $actionMenu;
 
     public function init()
     {
@@ -59,8 +60,18 @@ class BackendController extends Controller
             ],
             'service' => [
                 'title' => 'Сервис',
-                'link' => '/admin/service-api/',
+                'link' => '/admin/services/',
                 'status' => 1,
+                'items' => [
+                    [
+                        'link' => '/admin/service-api/',
+                        'title' => 'Телеграмм бот',
+                    ],
+                    [
+                        'link' => '/admin/inst/index',
+                        'title' => 'Инстограмм Api',
+                    ],
+                ],
             ],
             'options' => [
                 'title' => 'Настройка',
@@ -74,6 +85,51 @@ class BackendController extends Controller
                 'status' => 1,
             ],
 
+        ];
+
+        $this->actionMenu = [
+            'index' => [
+                'title' => 'Инстаграм',
+                'link' => '/admin/inst/index',
+                'class'=>'',
+                'status' => 1,
+            ],
+            'taskAdd' => [
+                'title' => 'Создать задачу',
+                'link' => '/admin/',
+                'class'=>'glyphicon glyphicon-plus',
+                'status' => 1,
+            ],
+            'task' => [
+                'title' => 'Задачи',
+                'link' => '/admin/',
+                'class'=>'',
+                'status' => 1,
+            ],
+            'accounts' => [
+                'title' => 'Аккаунты',
+                'link' => '/admin/inst/accounts',
+                'class'=>'',
+                'status' => 1,
+            ],
+            'post' => [
+                'title' => 'Автопостинг',
+                'link' => '/admin/',
+                'class'=>'',
+                'status' => 1,
+            ],
+            'list' => [
+                'title' => 'Списки',
+                'link' => '/admin/',
+                'class'=>'',
+                'status' => 1,
+            ],
+            'settings' => [
+                'title' => 'Настройки',
+                'link' => '/admin/',
+                'class'=>'',
+                'status' => 1,
+            ],
         ];
 
     }
