@@ -4,7 +4,7 @@ namespace app\models;
 use yii\base\Model;
 use yii\web\UploadedFile;
 use Yii;
-use app\models\ResizeImages;
+
 
 class UploadImages extends Model
 {
@@ -19,14 +19,14 @@ class UploadImages extends Model
     public function rules()
     {
         return [
-           // [['imageFiles'], 'file', 'extensions' => 'png, jpg, gif', 'maxFiles' => 6],
-            [['imageMax','imageMin'], 'file',  'extensions' => 'png, jpg'],
+            [['imageMax','imageMin'], 'file', 'extensions' => 'png, jpg'],
         ];
     }
 
     /*---------- Загружаем изображения;------------*/
     public function isUpload($file = false, $width = 1024, $height = false, $option = 'auto')
     {
+
         //
         if ($this->validate()) {
 
@@ -38,7 +38,8 @@ class UploadImages extends Model
             if(!empty($width)) {
                 $resizeImages = new ResizeImages($fileDir);
                 $resizeImages->resizeImage($width,$height,$option);
-                $resizeImages->mCopy($fileDir,$file . '_min.' . $this->imageMax->extension,300);
+                $resizeImages->saveImage($fileDir, 100);
+                $resizeImages->mCopy($fileDir,$file . '_min.' . $this->imageMax->extension,640,480,'crop');
             }
             return true;
 

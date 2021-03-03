@@ -16,7 +16,6 @@ if (!Yii::$app->user->isGuest) {
   //  print_arr(Yii::$app->user);
 
 }else{
-
 }
 $menu = Pages::find()->where(['status'=>1])->all();
 $options = Options::find()->where(['id'=>1000,'status'=>1])->one();
@@ -30,6 +29,7 @@ $options = Options::find()->where(['id'=>1000,'status'=>1])->one();
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name=“robots” content=“noindex,nofollow”>
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>

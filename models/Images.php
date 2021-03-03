@@ -35,6 +35,7 @@ class Images extends \yii\db\ActiveRecord {
             [['hash'], 'string', 'max' => 228],
             [['exp'], 'string', 'max' => 128],
 
+
         ];
     }
 
@@ -72,6 +73,5 @@ class Images extends \yii\db\ActiveRecord {
                 return \Yii::$app->params['no_images'];
             }
     }
-
 
 }

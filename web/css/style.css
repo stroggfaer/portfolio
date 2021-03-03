@@ -68,7 +68,7 @@ a.no-transition {
 ----------------------------------------------------------------------------- */
 a:hover,
 a:focus {
-    color: #121212;
+    color: #ff561b;
     text-decoration: none;
 }
 a:focus { outline: thin dotted; }
@@ -10713,7 +10713,12 @@ ul.nav-tabs > li.tab-button > a:hover::after { opacity: 1; }
     line-height: 1;
     display: inline-block;
 }
-
+.pricing-block-container .pricing-block-price span.old_price {
+    display: block;
+    font-size: 25px;
+    text-decoration: line-through;
+    color: #7a7a7a;
+}
 /* Currency
 --------------------------------------------------------- */
 .pricing-block-container .pricing-block-price .currency {
@@ -12769,6 +12774,7 @@ canvas{
     text-align: center;
     position: relative;
     color: #fff;
+    margin-top:35px;
 }
 .filtr-container  .filtr-item .item-desc h3::after{
     border-bottom: 1px solid #fff;
@@ -12783,6 +12789,7 @@ canvas{
 .filtr-container .filtr-item .item-desc p {
     font-size: 14px;
     padding-top: 15px;
+    text-align: center;
 }
 .filtr-container .button-t {
     bottom: 5px;

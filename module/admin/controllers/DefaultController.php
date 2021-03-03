@@ -19,12 +19,17 @@ use app\models\UploadImages;
 
 use app\models\PortfolioDetails;
 
-use app\models\ResizeImages;
+use app\models\Orders;
+use app\module\admin\models\PostSearchOrders;
+
+use app\models\Options;
+use app\module\admin\models\PostSearchOptions;
 
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\helpers\Url;
 
-//use app\module\admin\controllers\BackendController;
+
 /**
  * DefaultController implements the CRUD actions for Pages model.
  */
@@ -58,6 +63,7 @@ class DefaultController extends BackendController
 
     public function actionIndex()
     {
+        // Запомнить текущий URL
 
         return $this->render('index');
     }
@@ -71,6 +77,7 @@ class DefaultController extends BackendController
     {
         $searchModel = new PostSearchPages();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
 
         return $this->render('pages/index', [
             'searchModel' => $searchModel,
@@ -442,13 +449,11 @@ class DefaultController extends BackendController
      */
     public function actionUpdatePortfolio($id)
     {
+
         $model = $this->findModelPortfolio($id);
 
         // Изображения;
         $images = new UploadImages();
-
-
-
 
         // Добавляем запись;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -483,6 +488,7 @@ class DefaultController extends BackendController
         }
     }
 
+
     /**
      * Deletes an existing Portfolio model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
@@ -511,6 +517,200 @@ class DefaultController extends BackendController
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+    /*--------Заявки-----------*/
+    /**
+     * Lists all Orders models.
+     * @return mixed
+     */
+    public function actionOrders()
+    {
+        $searchModel = new PostSearchOrders();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        // Пометить как отмечень;
+        if (Yii::$app->request->post('checkboxColumn')) {
+            $id = Yii::$app->request->post('id');
+            $status = Yii::$app->request->post('status');
+            $model =  $this->findModelOrders($id);
+            $model->status = $status;
+            $model->save(false);
+            return $this->render('orders/index', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+        }
+
+
+        return $this->render('orders/index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    /**
+     * Displays a single Orders model.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionViewOrders($id)
+    {
+        return $this->render('orders/view', [
+            'model' => $this->findModelOrders($id),
+        ]);
+    }
+
+    /**
+     * Deletes an existing Orders model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionDeleteOrders($id)
+    {
+        $this->findModelOrders($id)->delete();
+
+        return $this->redirect(['orders']);
+    }
+
+    /**
+     * Finds the Orders model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return Orders the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function findModelOrders($id)
+    {
+        if (($model = Orders::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+    /*-------------НАСТРОЙКА САЙТ И МОДУЛИ-----------------*/
+    /**
+     * Lists all Options models.
+     * @return mixed
+     */
+    public function actionOptions()
+    {
+
+        $searchModel = new PostSearchOptions();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('options/index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    /**
+     * Displays a single Options model.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionViewOptions($id)
+    {
+        return $this->render('options/view', [
+            'model' => $this->findModelOptions($id),
+        ]);
+    }
+
+    /**
+     * Creates a new Options model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
+     */
+    public function actionCreateOptions()
+    {
+        $model = new Options();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view-options', 'id' => $model->id]);
+        } else {
+            return $this->render('options/create', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    /**
+     * Updates an existing Options model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionUpdateOptions($id)
+    {
+        $model = $this->findModelOptions($id);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view-options', 'id' => $model->id]);
+        } else {
+            return $this->render('options/update', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    /**
+     * Deletes an existing Options model.
+     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * @param integer $id
+     * @return mixed
+     */
+    public function actionDeleteOptions($id)
+    {
+        $this->findModelOptions($id)->delete();
+
+        return $this->redirect(['options']);
+    }
+
+    /**
+     * Finds the Options model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return Options the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function findModelOptions($id)
+    {
+        if (($model = Options::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+/*----------Настройка Сервиса------------------------*/
+    // Сервисы;
+    public function actionServices(){
+        return $this->render('services/index', [
+            'model' => false,
+        ]);
+    }
+
+    // Настройка Телеграмма;
+    public function actionServiceApi() {
+
+       // \Yii::$app->bot->sendMessage(268585293, 'Hello world!');
+         $update =  \Yii::$app->bot->getUpdates();
+          $i = 0;
+          foreach($update as $client) {
+              print_arr($client);
+              // Запрос на квавиатуры;
+             // $keyboard = new \TelegramBot\Api\Types\ReplyKeyboardMarkup(array(array("Вопросы и ответы", "Заказ звонка", "Написать нам","Контакты")), true); // true for one-time keyboard
+             //\Yii::$app->bot->sendMessage(268585293, 'Пожалуйста, выберите тему, пользуясь кнопками внизу экрана.', null, false, null, $keyboard)
+          }
+        die();
+
+        return $this->render('services/index', [
+            'model' => false,
+        ]);
+    }
+
 
 
 }

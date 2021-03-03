@@ -8,7 +8,7 @@
         <div class="background-image-block parallax-effect lpbuilder-image">
             <div id="particles-js"></div>
             <div class="filter"></div>
-            <img src="/images/bg/bg4.jpg" alt="Parallax Image" style="top: -175px; transform: translate(-50%, 0px);">
+            <img src="/images/bg/bg4.jpg"  class="parallax-img" alt="">
 
         </div><!-- /End Background Image Block -->
         <!-- container -->
@@ -20,12 +20,12 @@
                     <!-- Title Block Container -->
                     <div class="title-block-container white-content text-center">
                         <!-- Description -->
-                        <p  style="height: 50px">
+                        <p>
                             <span id="printText"></span>
                             <span class="animated flash infinite" style="vertical-align: text-bottom;">|</span>
                         </p>
                         <!-- Title -->
-                        <h1 class="wow fadeIn" data-wow-delay="2s">Full Stack Developer</h1>
+                        <h1 class="wow fadeIn" data-wow-delay="2s">Full Stack web Developer</h1>
                         <!-- Social Icons Block -->
                         <div class="social-icons-block-mod  text-center wow bounce " data-wow-delay="3s" >
                             <ul>
@@ -40,7 +40,13 @@
                     </div><!-- /End Title Block Container -->
                 </div><!-- /End Title Block -->
 
-
+                <div class="arrows js-anchor">
+                    <a href="#about" class="no_focus">
+                        <span class="arrow ion-ios-arrow-down"></span>
+                        <span class="arrow ion-ios-arrow-down"></span>
+                        <span class="arrow active ion-ios-arrow-down"></span>
+                    </a>
+                </div>
             </div><!-- /End row -->
         </div><!-- /End container -->
 
@@ -58,7 +64,7 @@
             <div class="title-block-container text-center">
 
                 <!-- Title -->
-                <h2 id="about">Обо мне</h2>
+                <h2 id="about" class="wow fadeIn">Обо мне</h2>
                 <!-- Line Separator -->
                 <div class="line-separator"></div>
                 <div class="row">
@@ -69,10 +75,11 @@
                         <div class="content-about">
                             <h3 class="title text-left">Здравствуйте,меня зовут Руслан</h3>
                             <div class="text text-left">
-                                Я web - разработчик. Занимаюсь создание сайтов.  Опыт работы  с  2010 года.  Имею ключевые  навыки<br>
+                                Я web - разработчик. Занимаюсь создание сайтов.  Опыт работы 7 лет.  Имею ключевые  навыки<br>
                                 <b>Front-end:</b>  HTML, CSS (Препроцессор LESS), javaScript/jQuery, Gulp, Webpack<br>
                                 <b>Back end:</b> PHP, Mysql/SQL, фреймворк Yii2 и другие технологии.
-                                <p>Осуществляю творческий подход в решении нестандартных задач.</p>
+                                <p>Творческий подход в решении нестандартных задач.</p>
+
                             </div>
                         </div>
                     </div>
@@ -82,46 +89,6 @@
     </div><!-- /End Section Container -->
 </div><!-- /End Team 11 --><!-- Portfolio 2
             ==================================================================== -->
-
-<!-- CTA 16-->
-<div id="cta-section-16" class="cta-section black-section hidden">
-    <!-- Section Container -->
-    <div class="section-container">
-        <!-- Background Image Block -->
-        <div class="bg">
-            <img src="images/bg/bg101.jpg" alt="">
-        </div><!-- /End Background Image Block -->
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-                <!-- Title Block -->
-                <div class="col-lg-10 col-lg-offset-1 col-md-12 title-block">
-                    <!-- Title Block Container -->
-                    <div class="title-block-container text-center white-content">
-                        <!-- Title -->
-                        <h2>МОЙ ИНСТРУМЕНТЫ</h2>
-                        <!-- Line Separator -->
-                        <div class="line-separator"></div>
-                        <div class="row">
-
-                            <div class="col-md-3"><img src="images/tools/200px-LESS_Logo.svg.png" /></div>
-                            <div class="col-md-3"><img src="images/tools/200px-LESS_Logo.svg.png" /></div>
-
-
-                            <div class="col-md-3"><img src="images/tools/200px-LESS_Logo.svg.png" /></div>
-                            <div class="col-md-3"><img src="images/tools/200px-LESS_Logo.svg.png" /></div>
-
-                        </div>
-
-                    </div><!-- /End Title Block Container -->
-                </div><!-- /End Title Block -->
-
-
-            </div><!-- /End row -->
-        </div><!-- /End container -->
-    </div><!-- /End Section Container -->
-</div><!-- /End CTA 16 -->
 
 
 <div id="portfolio-section-2" class="portfolio-section white-section ">
@@ -139,7 +106,7 @@
             <!-- Title Block Container -->
             <div class="title-block-container text-center">
                 <!-- Title -->
-                <h2 >ПОРЯДОК РАБОТЫ</h2>
+                <h2 class="wow fadeIn">ПОРЯДОК РАБОТЫ</h2>
                 <!-- Description -->
                 <p></p>
                 <div class="line-separator white"></div>
@@ -180,7 +147,7 @@
                     <!-- Icon -->
                     <i class="ion-android-laptop icon-lg"></i>
                     <!-- Title -->
-                    <h4 class="white">Тестирование Проекта</h4>
+                    <h4 class="white">Тестирование </h4>
 
                 </div><!-- /End Content Block Container -->
             </div><!-- /End Content Block -->
@@ -215,9 +182,9 @@
                     <!-- Title Block Container -->
                     <div class="title-block-container text-center">
                         <!-- Title -->
-                        <h2 id="price">Цены</h2>
+                        <h2 id="price" class="wow fadeIn">Цены</h2>
                         <!-- Description -->
-                        <p>В данном разделе кратко описаны основные услуги, которые я с могу оказать на данный момент.</p>
+                        <p>Основные услуги.</p>
                         <!-- Line Separator -->
                         <div class="line-separator"></div>
                     </div><!-- /End Title Block Container -->
@@ -240,6 +207,7 @@
                             <!-- Pricing Block Price -->
                             <div class="pricing-block-price">
                                 <h2>
+                                    <span class="old_price">1 500 <span class="duration">р.</span></span>
                                     <span class="currency">от</span>
                                     <span class="amount">999</span>
                                     <span class="duration">р.</span>
@@ -273,8 +241,9 @@
                             <!-- Pricing Block Price -->
                             <div class="pricing-block-price">
                                 <h2>
+                                    <span class="old_price">6 300 <span class="duration">р.</span></span>
                                     <span class="currency">от</span>
-                                    <span class="amount">5 999</span>
+                                    <span class="amount">4 999</span>
                                     <span class="duration">р.</span>
                                 </h2>
                             </div><!-- /End Pricing Block Price -->
@@ -308,8 +277,9 @@
                             <!-- Pricing Block Price -->
                             <div class="pricing-block-price">
                                 <h2>
+                                    <span class="old_price">5 500 <span class="duration">р.</span></span>
                                     <span class="currency">от</span>
-                                    <span class="amount">3 999</span>
+                                    <span class="amount">4 999</span>
                                     <span class="duration">р.</span>
                                 </h2>
                             </div><!-- /End Pricing Block Price -->
@@ -321,7 +291,7 @@
                                     <li>Верстка</li>
                                     <li>Программная часть</li>
                                     <li>Хостинг на 3 месяца в подарок</li>
-                                    <li>Обслуживания сайта на 3 месяца</li>
+                                    <li>Обслуживания сайта на 2 месяца</li>
                                     <li>Средние сроки – от 5 дней</li>
                                 </ul>
                             </div><!-- /End Pricing Block Features -->
@@ -333,7 +303,7 @@
 
             </div><!-- /End row -->
             <br>
-            <p class="hidden">*-</p>
+            <p>*-Корректировка сайта - внесение изменений по желанию клиента в течении 10 дней <b>БЕСПЛАТНО</b></p>
         </div><!-- /End container -->
 
     </div><!-- /End Section Container -->
@@ -367,6 +337,7 @@
                                <ul>
                                    <li class="ion-social-skype"><a class="white" href="skype:stroggfri?chat">stroggfri</a></li>
                                    <li class="ion-android-mail"><a href="mailto:rendzhi@mail.ru">rendzhi@mail.ru</a></li>
+                                   <li class="ion-android-call"><a href="tel:+79658294371">+7 (965) 829 4371</a></li>
                                </ul>
                             </div>
                             <?=\app\components\WForma::widget(['model'=>$order])?>

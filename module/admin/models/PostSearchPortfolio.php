@@ -67,7 +67,7 @@ class PostSearchPortfolio extends Portfolio
 
         $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'description', $this->description]);
-
+        $query->orderBy('id DESC');
         return $dataProvider;
     }
 }

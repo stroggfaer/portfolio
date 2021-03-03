@@ -97,7 +97,7 @@ jQuery(document).ready(function () {
 
         //Initialize filterizr with default options
        if($('.filtr-container').length) $('.filtr-container').filterizr();
-        console.log($('.filtr-container').length );
+
         //Simple filter controls
         $('.simplefilter li').click(function() {
             $('.simplefilter li').removeClass('active');
@@ -126,7 +126,7 @@ jQuery(document).ready(function () {
             printText(
             "printText",
             [
-                "Добро пожаловать в мой цифровой дом, меня зовут - Руслан."
+                "Добро пожаловать на мою страницу, меня зовут - Руслан."
             ],
             80
         );

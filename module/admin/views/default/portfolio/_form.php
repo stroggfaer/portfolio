@@ -10,6 +10,7 @@ use yii\helpers\ArrayHelper;
 
 use yii\helpers\Url;
 
+
 /* @var $this yii\web\View */
 /* @var $model app\models\Portfolio */
 /* @var $form yii\widgets\ActiveForm */
@@ -17,6 +18,9 @@ use yii\helpers\Url;
 // Загрузка группы;
 $portfolioGroups = ArrayHelper::map(array_merge(\app\models\PortfolioGroups::find()->select(['id','title'])->where(['status'=>1])->orderBy('id ASC')->all()),'id','title');
 
+// Обработка позиция;
+$portfolio = \app\models\Portfolio::find()->orderBy('id ASC')->one();
+$position = $portfolio->position += 1;
 ?>
 
 <div class="portfolio-form">
@@ -28,6 +32,7 @@ $portfolioGroups = ArrayHelper::map(array_merge(\app\models\PortfolioGroups::fin
     <?= $form->field($model, 'title')->textInput(['maxlength' => true])->label('Название') ?>
 
     <?php // $form->field($model, 'description')->textarea(['rows' => 6])->label('Описание');  ?>
+     <?php if(false): ?>
     <?= $form->field($model, 'description')->widget(CKEditor::className(), [
         'editorOptions' => ElFinder::ckeditorOptions('elfinder',[
             'preset' => 'standard', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
@@ -38,6 +43,10 @@ $portfolioGroups = ArrayHelper::map(array_merge(\app\models\PortfolioGroups::fin
 
 
     ])->label('Описание');  ?>
+    <?php endif; ?>
+    <?= $form->field($model, 'description')->textarea(['rows' => 6])->label('Описание'); ?>
+
+    
     <?= $form->field($model, 'url')->textInput(['maxlength' => true])->label('Ссылка') ?>
     <?= $form->field($model, 'git')->textInput(['maxlength' => true])->label('Ссылка на git') ?>
     <?php
@@ -52,8 +61,10 @@ $portfolioGroups = ArrayHelper::map(array_merge(\app\models\PortfolioGroups::fin
         //http://plugins.krajee.com/file-input#events // Настройка even
         $form->field($images, 'imageMax',['enableClientValidation' => false])->widget(
             FileInput::classname(), [
-                'options' => ['multiple' => true],
-                'pluginOptions' => ['previewFileType' => 'image',
+                'options' => ['multiple' => true, 'accept' => 'image/*'],
+                'pluginOptions' => [
+                    'previewFileType' => 'image',
+                    'allowedFileExtensions'=>["jpg", "png", "jpeg", "bmp"],
                     'uploadUrl' => Url::to(['/admin/ajax-backend/file-upload']),
                     'uploadExtraData' => [
                         'group_id' => $model->id,
@@ -93,6 +104,7 @@ $portfolioGroups = ArrayHelper::map(array_merge(\app\models\PortfolioGroups::fin
     )->label('Группы')?>
     <?php endif; ?>
 
+    <?= $form->field($model, 'position')->textInput(['value' => ($model->id ? $model->position : $position)])->label('Позиция'); ?>
 
     <?= $form->field($model, 'status')->checkbox(['disabled' => false,]) ?>
 

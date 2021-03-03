@@ -33,7 +33,7 @@ class Portfolio extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['group_id', 'status',], 'integer'],
+            [['group_id', 'status','position'], 'integer'],
             [['title', 'description'], 'required'],
             [['description','url','git'], 'string'],
             [['date','checkboxList'], 'safe'],
@@ -75,6 +75,7 @@ class Portfolio extends \yii\db\ActiveRecord
         //
         if(!empty($id)) {
             $image = Images::find()->where(['group_id'=>$id, 'status' => 1, 'main' => 1])->one();
+            if(empty($image)) return false;
             return  $image->getPathImage($options);
         }
         return false;

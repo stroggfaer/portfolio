@@ -8,7 +8,7 @@ use yii\helpers\Url;
 /* @var $searchModel app\module\admin\models\PostSearchPages */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Pages';
+$this->title = 'Страница';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="pages-index">
@@ -17,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Pages', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавить', ['create-pages'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
